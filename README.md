@@ -1,2 +1,0 @@
-# MeoPig.github.io
-Blog
