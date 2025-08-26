@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Gitgit是什么  git是分布式版本控制系统特点：解决多人同时开发的代码问题，也可以找回历史代码。原理：一台充当服务器的电脑或者Github网站，其他人可以从这个服务器仓库中拉取一份代码到自己的电脑上，用户可以自行在自己电脑上对代码操作，操作结束后可以向服务器或者Github推送提交，也可以从仓库中拉取别人的提交。 git基本操作1. 创建版本库在所选目录下使用：git init ，即可对该目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Git】">
+<meta property="og:url" content="http://example.com/2022/01/16/Git/index.html">
+<meta property="og:site_name" content="MeoPig">
+<meta property="og:description" content="Gitgit是什么  git是分布式版本控制系统特点：解决多人同时开发的代码问题，也可以找回历史代码。原理：一台充当服务器的电脑或者Github网站，其他人可以从这个服务器仓库中拉取一份代码到自己的电脑上，用户可以自行在自己电脑上对代码操作，操作结束后可以向服务器或者Github推送提交，也可以从仓库中拉取别人的提交。 git基本操作1. 创建版本库在所选目录下使用：git init ，即可对该目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_1.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_2.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_3.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_4.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_5.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_6.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_7.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_8.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_9.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_10.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_11.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_12.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/Git_13.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/14.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/15.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/16.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/17.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/18.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/19.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/20.png">
+<meta property="og:image" content="http://example.com/2022/01/16/Git/21.png">
+<meta property="article:published_time" content="2022-01-16T06:08:56.000Z">
+<meta property="article:modified_time" content="2023-02-17T10:55:28.032Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/01/16/Git/Git_1.png">
+  
+  
+  <title>【Git】 - MeoPig</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MeoPig" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MeoPig</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/3.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【Git】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-16 14:08" pubdate>
+        2022年1月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      31 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Git】</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git是什么"><a href="#git是什么" class="headerlink" title="git是什么"></a>git是什么</h2><p>  git是分布式版本控制系统<br>特点：解决多人同时开发的代码问题，也可以找回历史代码。<br>原理：一台充当服务器的电脑或者Github网站，其他人可以从这个服务器仓库中拉取一份代码到自己的电脑上，用户可以自行在自己电脑上对代码操作，<br>操作结束后可以向服务器或者Github推送提交，也可以从仓库中拉取别人的提交。</p>
+<h2 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h2><h3 id="1-创建版本库"><a href="#1-创建版本库" class="headerlink" title="1. 创建版本库"></a>1. 创建版本库</h3><p>在所选目录下使用：git init ，即可对该目录下的文件使用git管理。<br>执行命令后会在目录下生成一个 .git 隐藏文件夹，代表成功。<br><img src="/2022/01/16/Git/Git_1.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-版本创建与回退"><a href="#2-版本创建与回退" class="headerlink" title="2. 版本创建与回退"></a>2. 版本创建与回退</h3><ul>
+<li>加入我在在所选目录下创建一个文件code.text,并在里面写了first内容</li>
+<li>使用下两条命令可以创建一个版本<br><code> git add code.txt    (git add命令可将该文件添加到暂存区)</code><br><code>  git commit -m &#39;版本1&#39; (git commit用来创建版本 &#39;&#39;内容表示对版本的说明)  </code><br><img src="/2022/01/16/Git/Git_2.png" srcset="/img/loading.gif" lazyload></li>
+<li>使用<code>git log</code> 可以查看版本记录,commit后面代表版本的序列号.<br><img src="/2022/01/16/Git/Git_3.png" srcset="/img/loading.gif" lazyload></li>
+<li>此时我又在code.txt中输入了second内容，并继续采用add和commit命令创建了版本2，那么此时我对于code.txt就有了两个版本<br>每个版本保存了当时创建版本时文件所存储的信息（可以理解为文件记录点），后一版本只记录较上一版本我修改了什么，并不是完整的保存整个文件。<br><img src="/2022/01/16/Git/Git_4.png" srcset="/img/loading.gif" lazyload></li>
+<li>现在若想要回到前一个版本1，可以使用：<br><code>git reset --hard HEAD^</code><br>其中HEAD表示当前最新版本，HEAD^表示当前版本的前一个版本，HAED^^表示当前版本的前两个版本。<br>也可以使用HEAD<del>1表示当前版本前一版本，HEAD</del>100表示回到前100。<br>执行命令后code.txt将回到版本1时的状态,只有个first，版本2也没有被删除.<br><img src="/2022/01/16/Git/Git_5.png" srcset="/img/loading.gif" lazyload></li>
+<li>现在若想再回到版本2，则可以：<br><code>git reset --hard 版本序列号</code><br><img src="/2022/01/16/Git/Git_6.png" srcset="/img/loading.gif" lazyload></li>
+<li>如果不小心把终端关闭了，无法再看到之前版本2的序列号则可以执行：<br><code>git reflog</code><br><img src="/2022/01/16/Git/Git_7.png" srcset="/img/loading.gif" lazyload></li>
+<li>查看当前git状态,看看工作区中有没有什么尚未暂存以备提交的变更或者新增加的未跟踪（未add commit的）文件。<br><code>git status</code></li>
+</ul>
+<h3 id="3-工作区和暂存区"><a href="#3-工作区和暂存区" class="headerlink" title="3. 工作区和暂存区"></a>3. 工作区和暂存区</h3><p> 工作区：我们刚才创立的目录git_test就叫工作区。<br> 版本库：.git隐藏目录就是版本库,git的版本库中有很多东西，最重要的时暂存区，还有git为我们自动创建的第一个分支Master，以及指向master的一份指针HEAD。git add就是将修改放到暂存区中。<br> git commit就是往master分支上提交更改。可以简单的理解为，需要提交的文件修改通通放到暂存区中，然后一次性提交暂存区的所有修改。<br> <font color="red">我创立的文件在工作区，此时我执行add，该文件存放到了暂存区，我对该文件又进行了修改并commit了，此时修改存到了版本库中。</font><br> <img src="/2022/01/16/Git/Git_8.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="4-管理修改"><a href="#4-管理修改" class="headerlink" title="4. 管理修改"></a>4. 管理修改</h3><p>git管理的文件修改，<font color="red">它只会提交暂存区的修改来创建版本</font>。</p>
+<h3 id="5-撤销修改"><a href="#5-撤销修改" class="headerlink" title="5. 撤销修改"></a>5. 撤销修改</h3><p><code>git checkout -- 文件名</code><br>此命令可以用来丢弃工作区的改动。<br><code>git reset HEAD filename</code><br>此命令可以把暂存区的修改撤销掉，重新放回工作区。<br><img src="/2022/01/16/Git/Git_9.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="6-对比文件的不同"><a href="#6-对比文件的不同" class="headerlink" title="6. 对比文件的不同"></a>6. 对比文件的不同</h3><ul>
+<li>对比工作区和某个版本中文件的不同。<br><code>git diff HEAD -- filename</code><br>比如我在工作区中往code.txt中新加入了different,执行命令后则可以看到刚才的修改与某个版本相比增加了什么。<br><img src="/2022/01/16/Git/Git_10.png" srcset="/img/loading.gif" lazyload></li>
+<li>对比两个版本中文件的不同。<br><code>git diff HEAD HEAD^ -- filename</code><br>filename代表要对比两个版本中的哪一个文件。<br><img src="/2022/01/16/Git/Git_11.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h3 id="7-删除文件"><a href="#7-删除文件" class="headerlink" title="7. 删除文件"></a>7. 删除文件</h3><p><code>git rm filename</code><br>从版本中删除某文件,并再次commit创建删除记录。  </p>
+<h2 id="git操作命令集合"><a href="#git操作命令集合" class="headerlink" title="git操作命令集合"></a>git操作命令集合</h2><figure class="highlight stylus"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></div></td><td class="code"><pre><code class="hljs stylus">单人操作:<br><span class="hljs-number">1</span><span class="hljs-selector-class">.sudo</span> apt-get intall git ,安装git ,并创建git密码<br><span class="hljs-number">2</span><span class="hljs-selector-class">.git</span>, 查看安装结果,有提示则证明安装成功<br><span class="hljs-number">3</span><span class="hljs-selector-class">.git</span> init , 创建本地仓库<br><span class="hljs-number">4</span><span class="hljs-selector-class">.git</span> config user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&#x27;张三&#x27;</span>, 配置git提交的用户名<br><span class="hljs-number">5</span><span class="hljs-selector-class">.git</span> config user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&#x27;123@qq.com&#x27;</span>, 配置git提交的邮箱<br><span class="hljs-number">6</span><span class="hljs-selector-class">.git</span> status, 查看工作区的文件状态<br><span class="hljs-number">7</span><span class="hljs-selector-class">.git</span> add 文件名, 添加指定文件名到暂存区<br><span class="hljs-number">8</span><span class="hljs-selector-class">.git</span> add . 添加所有的改动文件到暂存区<br><span class="hljs-number">9</span><span class="hljs-selector-class">.git</span> commit -m <span class="hljs-string">&#x27;版本信息描述&#x27;</span>,  添加当前版本说明<br><span class="hljs-number">10</span><span class="hljs-selector-class">.git</span> commit -am <span class="hljs-string">&#x27;版本信息&#x27;</span>, 直接添加到暂存区并提交到git仓库<br><span class="hljs-number">11</span><span class="hljs-selector-class">.git</span> log, 查看详情历史版本<br><span class="hljs-number">12</span><span class="hljs-selector-class">.git</span> reflog, 查看简单历史版本<br><span class="hljs-number">13</span><span class="hljs-selector-class">.git</span> reset <span class="hljs-attr">--hard</span> HEAD^ 回退到上个版本<br><span class="hljs-number">14</span><span class="hljs-selector-class">.git</span> reset <span class="hljs-attr">--hard</span> HEAD~<span class="hljs-number">1</span>回到上个版本<br><span class="hljs-number">15</span><span class="hljs-selector-class">.git</span> reset <span class="hljs-attr">--hard</span> 版本号,  跳转到指定的版本号<br><span class="hljs-number">16</span><span class="hljs-selector-class">.git</span> checkout 文件名,  撤销指定文件的修改,工作区<br><span class="hljs-number">17</span><span class="hljs-selector-class">.git</span> reset HEAD 文件名,  撤销暂存区的代码<br><span class="hljs-number">19</span><span class="hljs-selector-class">.git</span> diff HEAD HEAD^ -- 文件名,对比版本库<br><span class="hljs-number">20</span><span class="hljs-selector-class">.rm</span> 文件名, 删除文件,通过下面<span class="hljs-number">21</span>行命令撤销<br><span class="hljs-number">21</span><span class="hljs-selector-class">.git</span> checkout -- 文件名, 撤销删除<br><span class="hljs-number">22</span><span class="hljs-selector-class">.git</span> rm 文件名, 删除本地文件, 并提交,通过下面的<span class="hljs-number">23</span>行命令撤销<br><span class="hljs-number">23</span>. git reset <span class="hljs-attr">--hard</span> HEAD^,撤销<br><br>多人开发:<br><span class="hljs-number">23</span><span class="hljs-selector-class">.git</span> clone 地址, 克隆远程的代码到本地<br><span class="hljs-number">24</span><span class="hljs-selector-class">.git</span> push, 推送到远程仓库<br><span class="hljs-number">25</span><span class="hljs-selector-class">.git</span> config <span class="hljs-attr">--global</span>  credential<span class="hljs-selector-class">.helper</span> cache 十五分钟有效期<br><span class="hljs-number">26</span><span class="hljs-selector-class">.git</span> config  credential<span class="hljs-selector-class">.helper</span> <span class="hljs-string">&#x27;cache --timeout==3600&#x27;</span> 一个小时有效期<br><span class="hljs-number">27</span><span class="hljs-selector-class">.git</span> config <span class="hljs-attr">--global</span> credential<span class="hljs-selector-class">.helper</span> store 长期有效<br><span class="hljs-number">28</span><span class="hljs-selector-class">.git</span> pull ,拉取远程代码到本地目录<br><br><br>标签<br><span class="hljs-number">29</span><span class="hljs-selector-class">.git</span> tag -<span class="hljs-selector-tag">a</span> 标签名 -m <span class="hljs-string">&#x27;标签描述v1.0&#x27;</span>,  本地标签<br><span class="hljs-number">30</span><span class="hljs-selector-class">.git</span> push origin 标签名, 将本地标签版本推送到远程端<br><span class="hljs-number">31</span><span class="hljs-selector-class">.git</span> tag -d 标签名,  删除本地标签<br><span class="hljs-number">32</span><span class="hljs-selector-class">.git</span> push origin <span class="hljs-attr">--delete</span> tag 标签名, 删除远端的标签名<br><br><br>分支<br><span class="hljs-number">33</span><span class="hljs-selector-class">.git</span> branch, 查看当前分支<br><span class="hljs-number">34</span><span class="hljs-selector-class">.git</span> checkout -<span class="hljs-selector-tag">b</span> 分支名, 切换到指定分支<br><span class="hljs-number">35</span><span class="hljs-selector-class">.git</span> push -u origin 分支名,  推送本地分支跟踪远程分支<br><span class="hljs-number">36</span><span class="hljs-selector-class">.git</span> checkout master/dev 切换到master主分支/子分支<br><span class="hljs-number">37</span><span class="hljs-selector-class">.git</span> merge 分支A, 合并指定分支A到主分支中<br><br><br><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h2><h3 id="1-概念及作用"><a href="#1-概念及作用" class="headerlink" title="1. 概念及作用"></a>1. 概念及作用</h3><p><img src="/2022/01/16/Git/Git_12.png" srcset="/img/loading.gif" lazyload><br><img src="/2022/01/16/Git/Git_13.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-创建与合并分支"><a href="#2-创建与合并分支" class="headerlink" title="2. 创建与合并分支"></a>2. 创建与合并分支</h3><h4 id="1-概念："><a href="#1-概念：" class="headerlink" title="(1)概念："></a>(1)概念：</h4><p>  git会将我们之前每次提交的版本串成一条时间线，这条时间线就是一个分支。在git中，这个分支叫做主分支，即master分支。<br>  对于HEAD 严格来说不是指向提交，而是指向master，再由master指向提交。<br>  <img src="/2022/01/16/Git/14.png" srcset="/img/loading.gif" lazyload><br>  <img src="/2022/01/16/Git/15.png" srcset="/img/loading.gif" lazyload><br>  <img src="/2022/01/16/Git/16.png" srcset="/img/loading.gif" lazyload><br>  <img src="/2022/01/16/Git/17.png" srcset="/img/loading.gif" lazyload><br>  <img src="/2022/01/16/Git/18.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="2-分支的基本操作"><a href="#2-分支的基本操作" class="headerlink" title="(2)分支的基本操作"></a>(2)分支的基本操作</h4><ul>
+<li>(1)查看当前有几个分支并看到在哪个分支下工作<br>  <code>git branch</code> </li>
+<li>(2)创建一个新分支dev并切换到上面工作<br>  <code>git checkout -b dev</code><br>  此时HEAD指向dev,后续的版本操作都是在dev下操作，master将不会移动，依然指在原先位置。<br><img src="/2022/01/16/Git/19.png" srcset="/img/loading.gif" lazyload></li>
+<li>(3)将新分支合并到master上<br>  <code>git merge dev</code><br>  这条命令使用的是快速合并，也就是直接把master指向dev的当前提交，所以合并速度非常快。<br>  合并完成后，就可以放心的执行下列命令删除dev分支。<br>  <code>git branch -d dev</code><h4 id="3-分支操作命令集合"><a href="#3-分支操作命令集合" class="headerlink" title="(3)分支操作命令集合"></a>(3)分支操作命令集合</h4><img src="/2022/01/16/Git/20.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h3 id="3-解决冲突"><a href="#3-解决冲突" class="headerlink" title="3. 解决冲突"></a>3. 解决冲突</h3><p>  当master和dev都对某一文件进行了修改并提交了版本，这时候合并就会冲突。<br>  解决方法是在master中对文件进行手动修改并提交新版本，此时的情况就会变成下图样子：<br>  <img src="/2022/01/16/Git/21.png" srcset="/img/loading.gif" lazyload><br>  此时便可以删除dev。</p>
+<h3 id="4-分支管理策略"><a href="#4-分支管理策略" class="headerlink" title="4. 分支管理策略"></a>4. 分支管理策略</h3><p>  通常，合并分支时，如果可能，git会用fast forward模式进行快速合并，但此时不能执行快速合并且合并时没有冲突，这时候合并之后会做一次新的提交(包含合并前两个分支的修改内容)。<br>  提交时会出现弹窗让你输入提交说明信息。<br>  合并结束后可以删除dev。</p>
+<h3 id="5-Bug分支"><a href="#5-Bug分支" class="headerlink" title="5.Bug分支"></a>5.Bug分支</h3><p>  当我们遇到Bug需要修复时，可以为bug建一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。<br>  在实际工作中，我们在做手头工作但是接到了修复Bug的任务，不得不停下来当前任务，此时可以用 <code>git stash</code>将当前的工作现场存储起来以便修复Bug后继续手头工作.<br>  修复Bug过程：</p>
+<ol>
+<li>首先要确定在哪个分支上修复Bug,假如在master上，就从master创建临时分支。 </li>
+<li>在临时分支中修复bug，并进行提交。</li>
+<li>切换回master，采用禁止快速合并策略进行合并<br><code>git merge --no-ff -m &#39;说明信息&#39; 要合并的分支</code></li>
+<li>删除Bug临时分支，可以回到原先环境干活，采用<br>   <code>git stash list</code> 看看保存过的工作现场。<br>采用<code>git stash pop</code>便可以回到现场.</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/03/PythohCrawler/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【PythohCrawler】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/22/COVID-Visualization/">
+                        <span class="hidden-mobile">【数据可视化】国内新冠疫情数据可视化大屏</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
