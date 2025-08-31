@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-08-26T12:56:12.988Z</updated>
+  <updated>2025-08-31T15:28:16.438Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,12 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>前端面试-css篇</title>
+    <title>前端面试-js篇</title>
+    <link href="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/"/>
+    <id>http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/</id>
+    <published>2025-08-30T08:04:20.000Z</published>
+    <updated>2025-08-31T15:28:16.438Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-js中的数据类型？&quot;&gt;&lt;a href=&quot;#1-js中的数据类型？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端面试-CSS篇</title>
     <link href="http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/"/>
     <id>http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/</id>
     <published>2025-08-26T12:56:12.000Z</published>
-    <updated>2025-08-26T12:56:12.988Z</updated>
+    <updated>2025-08-30T08:04:00.723Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-让一个元素水平垂直居中的方案？&quot;&gt;&lt;a href=&quot;#1-让一个元素水平垂直居中的方案？&quot; class=&quot;headerlink&quot; title=&quot;1.让一个元素水平垂直居中的方案？&quot;&gt;&lt;/a&gt;1.让一个元素水平垂直居中的方案？&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
     
     
     
@@ -34,7 +63,7 @@
     <link href="http://example.com/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/"/>
     <id>http://example.com/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/</id>
     <published>2025-08-23T10:09:00.000Z</published>
-    <updated>2025-08-26T12:53:06.389Z</updated>
+    <updated>2025-08-30T07:29:13.911Z</updated>
     
     
       

@@ -16,18 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="前端面试-css篇">
+    <meta name="description" content="1.让一个元素水平垂直居中的方案？  2.说说对盒子模型的理解？ 一个盒子由四个部分组成：content、padding、border、margin  标准盒模型：  盒子总宽度 &#x3D; width + padding + border + margin; 盒子总高度 &#x3D; height + padding + border + margin   IE怪异盒模型：  盒子总宽度 &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试-CSS篇">
 <meta property="og:url" content="http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/index.html">
 <meta property="og:site_name" content="MeoPig">
+<meta property="og:description" content="1.让一个元素水平垂直居中的方案？  2.说说对盒子模型的理解？ 一个盒子由四个部分组成：content、padding、border、margin  标准盒模型：  盒子总宽度 &#x3D; width + padding + border + margin; 盒子总高度 &#x3D; height + padding + border + margin   IE怪异盒模型：  盒子总宽度 &amp;#">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/1-1.png">
+<meta property="og:image" content="http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/2-1.png">
+<meta property="og:image" content="http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/12-1.png">
 <meta property="article:published_time" content="2025-08-26T12:56:12.000Z">
-<meta property="article:modified_time" content="2025-08-26T12:56:12.988Z">
+<meta property="article:modified_time" content="2025-08-30T08:04:00.723Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/1-1.png">
   
   
-  <title>前端面试-css篇 - MeoPig</title>
+  <title>前端面试-CSS篇 - MeoPig</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -174,7 +180,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="前端面试-css篇">
+            <span class="h2" id="subtitle" title="前端面试-CSS篇">
               
             </span>
 
@@ -195,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      1.7k 字
     </span>
   
 
@@ -204,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      15 分钟
     </span>
   
 
@@ -233,10 +239,114 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">前端面试-css篇</h1>
+            <h1 style="display: none">前端面试-CSS篇</h1>
             
             <div class="markdown-body">
-              
+              <h2 id="1-让一个元素水平垂直居中的方案？"><a href="#1-让一个元素水平垂直居中的方案？" class="headerlink" title="1.让一个元素水平垂直居中的方案？"></a>1.让一个元素水平垂直居中的方案？</h2><p><img src="/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/1-1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<hr>
+<h2 id="2-说说对盒子模型的理解？"><a href="#2-说说对盒子模型的理解？" class="headerlink" title="2.说说对盒子模型的理解？"></a>2.说说对盒子模型的理解？</h2><p><img src="/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/2-1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<p>一个盒子由四个部分组成：content、padding、border、margin</p>
+<ol>
+<li><p>标准盒模型：</p>
+<ul>
+<li>盒子总宽度 &#x3D; width + padding + border + margin;</li>
+<li>盒子总高度 &#x3D; height + padding + border + margin</li>
+</ul>
+</li>
+<li><p>IE怪异盒模型：</p>
+<ul>
+<li>盒子总宽度 &#x3D; width + margin;</li>
+<li>盒子总高度 &#x3D; height + margin;</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="3-如何创建块级格式化上下文-block-formatting-context-BFC有什么用？"><a href="#3-如何创建块级格式化上下文-block-formatting-context-BFC有什么用？" class="headerlink" title="3.如何创建块级格式化上下文(block formatting context),BFC有什么用？"></a>3.如何创建块级格式化上下文(block formatting context),BFC有什么用？</h2><ol>
+<li><p>创建规则：</p>
+<ul>
+<li>根元素</li>
+<li>浮动元素（ float 不取值为 none ）</li>
+<li>绝对定位元素（ position 取值为 absolute 或 fixed ）</li>
+<li>display 取值为 inline-block 、 table-cell 、 table-caption 、 flex 、inline-flex 之⼀的元素</li>
+<li>overflow 不取值为 visible 的元素</li>
+</ul>
+</li>
+<li><p>作⽤：</p>
+<ul>
+<li>可以包含浮动元素</li>
+<li>不被浮动元素覆盖</li>
+<li>阻⽌父子元素的 margin 折叠</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="4-display有哪些值？说明他们的作用"><a href="#4-display有哪些值？说明他们的作用" class="headerlink" title="4.display有哪些值？说明他们的作用"></a>4.display有哪些值？说明他们的作用</h2><ul>
+<li>block 转换成块状元素。</li>
+<li>inline 转换成⾏内元素。</li>
+<li>none 设置元素不可⻅。</li>
+<li>inline-block 像⾏内元素⼀样显示，但其内容像块类型元素⼀样显示。</li>
+<li>list-item 像块类型元素⼀样显示，并添加样式列表标记</li>
+<li>table 此元素会作为块级表格来显示</li>
+<li>inherit 规定应该从⽗元素继承 display 属性的值</li>
+</ul>
+<hr>
+<h2 id="5-position的值，-relative和absolute定位原点是？"><a href="#5-position的值，-relative和absolute定位原点是？" class="headerlink" title="5. position的值， relative和absolute定位原点是？"></a>5. position的值， relative和absolute定位原点是？</h2><ul>
+<li>absolute ：⽣成绝对定位的元素，相对于 static 定位以外的第⼀个⽗元素进⾏定位</li>
+<li>fixed ：⽣成绝对定位的元素，相对于浏览器窗⼝进⾏定位</li>
+<li>relative ：⽣成相对定位的元素，相对于其正常位置进⾏定位</li>
+<li>static 默认值。没有定位，元素出现在正常的流中</li>
+<li>inherit 规定从⽗元素继承 position 属性的值</li>
+</ul>
+<hr>
+<h2 id="6-before-和-hover中双冒号和单冒号-有什么区别？解释一下这2个"><a href="#6-before-和-hover中双冒号和单冒号-有什么区别？解释一下这2个" class="headerlink" title="6. ::before 和 :hover中双冒号和单冒号 有什么区别？解释一下这2个"></a>6. ::before 和 :hover中双冒号和单冒号 有什么区别？解释一下这2个</h2><p>伪元素的作用<br>单冒号( : )用于 CSS3 伪类，双冒号( :: )用于 CSS3 伪元素<br>⽤于区分伪类和伪元素。</p>
+<hr>
+<h2 id="7-CSS不同选择器的权重-CSS层叠的规则"><a href="#7-CSS不同选择器的权重-CSS层叠的规则" class="headerlink" title="7.CSS不同选择器的权重(CSS层叠的规则)"></a>7.CSS不同选择器的权重(CSS层叠的规则)</h2><ul>
+<li>! important 规则最重要，大于其它规则</li>
+<li>行内样式规则，加 1000</li>
+<li>对于选择器中给定的各个 ID 属性值，加 100</li>
+<li>对于选择器中给定的各个类属性、属性选择器或者伪类选择器，加 10</li>
+<li>对于选择其中给定的各个元素标签选择器，加1</li>
+<li>如果权值⼀样，则按照样式规则的先后顺序来应⽤，顺序靠后的覆盖靠前的规则</li>
+</ul>
+<hr>
+<h2 id="8-CSS在性能优化方面的实践？"><a href="#8-CSS在性能优化方面的实践？" class="headerlink" title="8.CSS在性能优化方面的实践？"></a>8.CSS在性能优化方面的实践？</h2><ul>
+<li>css 压缩与合并、 Gzip 压缩</li>
+<li>css 文件放在 head 里、不要用 @import</li>
+<li>尽量用缩写、避免用滤镜、合理使用选择器</li>
+</ul>
+<hr>
+<h2 id="9-base64-的使用？"><a href="#9-base64-的使用？" class="headerlink" title="9.base64 的使用？"></a>9.base64 的使用？</h2><ul>
+<li>⽤于减少 HTTP 请求</li>
+<li>适⽤于⼩图⽚</li>
+<li>base64 的体积约为原图的 4&#x2F;3</li>
+</ul>
+<hr>
+<h2 id="10-水平居中的方法？"><a href="#10-水平居中的方法？" class="headerlink" title="10. 水平居中的方法？"></a>10. 水平居中的方法？</h2><ul>
+<li>元素为⾏内元素，设置⽗元素 text-align:center</li>
+<li>如果元素宽度固定，可以设置左右 margin 为 auto ;</li>
+<li>如果元素为绝对定位，设置⽗元素 position 为 relative ，元素设left:0;right:0;margin:auto;</li>
+<li>使用 flex-box 布局，指定 justify-content 属性为center<br>display 设置为 tabel-ceil</li>
+</ul>
+<hr>
+<h2 id="11-垂直居中的方法？"><a href="#11-垂直居中的方法？" class="headerlink" title="11. 垂直居中的方法？"></a>11. 垂直居中的方法？</h2><ul>
+<li>将显示方式设置为表格， display:table-cell ,同时设置 vertial-align：middle</li>
+<li>使用 flex 布局，设置为 align-item：center</li>
+<li>绝对定位中设置 bottom:0,top:0 ,并设置 margin:auto</li>
+<li>绝对定位中固定高度时设置 top:50%，margin-top 值为⾼度⼀半的负值</li>
+<li>文本垂直居中设置 line-height 为 height 值</li>
+</ul>
+<hr>
+<h2 id="12-怎样做移动端的适配？"><a href="#12-怎样做移动端的适配？" class="headerlink" title="12. 怎样做移动端的适配？"></a>12. 怎样做移动端的适配？</h2><ol>
+<li><p>响应式设计</p>
+<ul>
+<li>使用css媒体查询来根据设备特征应用不同样式</li>
+<li>通过设置百分比宽度、最大宽度或相对单位来确保元素相对于其容器的大小进行自适应。</li>
+</ul>
+</li>
+</ol>
+<p>  <img src="/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/12-1.png" srcset="/img/loading.gif" lazyload alt=" "><br>2. 弹性布局和网格布局<br>3. 移动端优先，首先定义移动端的样式，然后使用媒体查询逐步添加到更大屏幕上，以确保基本功能在小屏幕上正常工作。</p>
+<hr>
+
             </div>
             <hr>
             <div>
@@ -255,6 +365,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">前端面试-js篇</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

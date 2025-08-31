@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.js中的数据类型？ number、string、boolean、null、undefined、object、symbol（symbol 是 ES6 新增的数据类型，用于创建唯一标识符。）、bigint 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function）   2. 0.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试-js篇">
+<meta property="og:url" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/index.html">
+<meta property="og:site_name" content="MeoPig">
+<meta property="og:description" content="1.js中的数据类型？ number、string、boolean、null、undefined、object、symbol（symbol 是 ES6 新增的数据类型，用于创建唯一标识符。）、bigint 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function）   2. 0.1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/8-1.png">
+<meta property="og:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/12-1.png">
+<meta property="article:published_time" content="2025-08-30T08:04:20.000Z">
+<meta property="article:modified_time" content="2025-08-31T15:28:16.438Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/8-1.png">
+  
+  
+  <title>前端面试-js篇 - MeoPig</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MeoPig" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MeoPig</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/3.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="前端面试-js篇">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2025-08-30 16:04" pubdate>
+        2025年8月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      52 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">前端面试-js篇</h1>
+            
+            <div class="markdown-body">
+              <h2 id="1-js中的数据类型？"><a href="#1-js中的数据类型？" class="headerlink" title="1.js中的数据类型？"></a>1.js中的数据类型？</h2><ol>
+<li>number、string、boolean、null、undefined、object、symbol<br>（symbol 是 ES6 新增的数据类型，用于创建唯一标识符。）、bigint</li>
+<li>引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function）</li>
+</ol>
+<hr>
+<h2 id="2-0-1-0-2-x3D-0-3-的结果是多少？"><a href="#2-0-1-0-2-x3D-0-3-的结果是多少？" class="headerlink" title="2. 0.1 + 0.2 &#x3D; 0.3 的结果是多少？"></a>2. 0.1 + 0.2 &#x3D; 0.3 的结果是多少？</h2><p>0.1和0.2在转换成二进制后会无限循环，由于标准位数的限制后面多余的位数会被截掉，此时就已经出现了精度的损失，相加后因浮点数小数位的限制而截断的二进制数字在转换为十进制就会变成0.30000000000000004.</p>
+<h2 id="3-typeof能否判断正确类型？"><a href="#3-typeof能否判断正确类型？" class="headerlink" title="3.typeof能否判断正确类型？"></a>3.typeof能否判断正确类型？</h2><p>typeof 1 返回 number<br>typeof ‘1’ 返回 string<br>typeof true 返回 boolean<br>typeof undefined 返回 undefined<br>typeof symbol() 返回 symbol</p>
+<p>但对于引用数据类型，typeof 无法判断正确的类型，除了函数之外，都会显示object<br>typeof {} 返回 object<br>typeof [] 返回 object<br>typeof console.log 返回 function</p>
+<h2 id="4-instanceof-？"><a href="#4-instanceof-？" class="headerlink" title="4. instanceof ？"></a>4. instanceof ？</h2><p>instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。<br>instanceof的原理是基于原型链的查询，只要处于原型链中，判断永远为true。</p>
+<h2 id="5-typeof-和instanceof-区别？"><a href="#5-typeof-和instanceof-区别？" class="headerlink" title="5. typeof 和instanceof 区别？"></a>5. typeof 和instanceof 区别？</h2><p>typeof与instanceof都是判断数据类型的方法，区别如下：</p>
+<ul>
+<li>typeof会返回一个变量的基本类型，instanceof返回的是一个布尔值。</li>
+<li>instanceof 可以准确地判断复杂引用数据类型，但是不能正确判断基础数据类型。</li>
+<li>而typeof 也存在弊端，它虽然可以判断基础数据类型（null 除外），但是引用数据类型中，除了function 类型以外，其他的也无法判断。</li>
+</ul>
+<h2 id="6-手动实现一个instanceof"><a href="#6-手动实现一个instanceof" class="headerlink" title="6.手动实现一个instanceof"></a>6.手动实现一个instanceof</h2><p>核心：获取对象的原型，判断对象的原型是否等于构造函数的 prototype 对象。原型链的向上查找。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myInstanceof</span>(<span class="hljs-params">left, right</span>) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> left !== <span class="hljs-string">&#x27;object&#x27;</span> || left === <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> proto = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(left);<br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>        <span class="hljs-keyword">if</span> (proto === <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">if</span> (proto === right.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        proto = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(proto);<br>    &#125;<br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">myInstanceof</span>(<span class="hljs-string">&#x27;111&#x27;</span>, <span class="hljs-title class_">String</span>)); <span class="hljs-comment">//false</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">myInstanceof</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&#x27;111&#x27;</span>), <span class="hljs-title class_">String</span>)); <span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-object-is和-x3D-x3D-x3D-区别？"><a href="#7-object-is和-x3D-x3D-x3D-区别？" class="headerlink" title="7.object.is和&#x3D;&#x3D;&#x3D;区别？"></a>7.object.is和&#x3D;&#x3D;&#x3D;区别？</h2><ul>
+<li>NaN 和 NaN 相等</li>
+<li>0 和 -0 不相等</li>
+</ul>
+<hr>
+<h2 id="8-js类型转换？"><a href="#8-js类型转换？" class="headerlink" title="8. js类型转换？"></a>8. js类型转换？</h2><p>三种：</p>
+<ul>
+<li>转换成数字</li>
+<li>转换成布尔值</li>
+<li>转换成字符串</li>
+</ul>
+<p><img src="/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/8-1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<h2 id="9-x3D-x3D-x3D-和-x3D-x3D-的区别？"><a href="#9-x3D-x3D-x3D-和-x3D-x3D-的区别？" class="headerlink" title="9. &#x3D;&#x3D;&#x3D; 和 &#x3D;&#x3D; 的区别？"></a>9. &#x3D;&#x3D;&#x3D; 和 &#x3D;&#x3D; 的区别？</h2><p><code>===</code> 严格相等，左右两边不仅值要相等，类型也要相等。<br><code>==</code> 允许类型转换，只要两边的值相等，就返回true。</p>
+<p><code>==</code>不像 <code>===</code>那样严格，对于一般情况，只要值相等，就返回true，但&#x3D;&#x3D;还涉及一些类型转换，它的转换规则如下：</p>
+<ul>
+<li>两边的类型是否相同，相同的话就比较值的大小，例如1&#x3D;&#x3D;2，返回false。</li>
+<li>判断的是否是null和undefined，是的话就返回true。</li>
+<li>判断的类型是否是String和Number，是的话，把String类型转换成Number，再进行比较。</li>
+<li>判断其中一方是否是Boolean，是的话就把Boolean转换成Number，再进行比较。</li>
+<li>如果其中一方为Object，且另一方为String、Number或者Symbol，会将Object转换成字符串，再进行比较。</li>
+</ul>
+<h2 id="10-js闭包？"><a href="#10-js闭包？" class="headerlink" title="10. js闭包？"></a>10. js闭包？</h2><p>概念：闭包是指有权访问另一个函数作用域中的变量的函数。闭包&#x3D;函数+词法环境。闭包就是能够读取其他函数内部变量的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">m</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">var</span> a=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">sub</span>(<span class="hljs-params"></span>)&#123;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>特性：</p>
+<ul>
+<li>函数内再嵌套函数</li>
+<li>内部函数可以引⽤外层的参数和变量</li>
+<li>参数和变量不会被垃圾回收机制回收</li>
+</ul>
+<p>表现形式：</p>
+<ol>
+<li><p>返回一个函数</p>
+</li>
+<li><p>作为函数参数传递</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">m</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">var</span> a=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">sub</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<br>    &#125;<br>    <span class="hljs-title function_">bar</span>(sub);<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params">fn</span>)&#123;<br>    <span class="hljs-title function_">fn</span>();<br>&#125;<br><span class="hljs-title function_">m</span>();<span class="hljs-comment">//2</span><br></code></pre></td></tr></table></figure></li>
+<li><p>在定时器、事件监听、Ajax请求、跨窗口通信、Web Workers或者任何异步中，只要使用了回调函数，实际上就是在使用闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 定时器</span><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">timeHandler</span>(<span class="hljs-params"></span>)&#123;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;111&#x27;</span>);<br>&#125;，<span class="hljs-number">100</span>)<br><span class="hljs-comment">// 事件监听</span><br>$(<span class="hljs-string">&#x27;#app&#x27;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;DOM Listener&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure></li>
+<li><p>IIFE(立即执行函数表达式)创建闭包, 保存了 全局作用域window 和 当前函数的作用域 ，因此可以全局的变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;<br>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">IIFE</span>(<span class="hljs-params"></span>)&#123;<br><span class="hljs-comment">// 输出2</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<br>&#125;)();<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>理解：</p>
+<ul>
+<li>使⽤闭包主要是为了设计私有的⽅法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增⼤内存使⽤量，使⽤不当很容易造成内存泄露。在js中，函数即闭包，只有函数才会产⽣作⽤域的概念。</li>
+<li>闭包 的最⼤⽤处有两个，⼀个是可以读取函数内部的变量，另⼀个就是让这些变量始终保持在内存中。</li>
+<li>闭包的另⼀个⽤处，是封装对象的私有属性和私有⽅法</li>
+<li>好处：能够实现封装和缓存等；</li>
+<li>坏处：就是消耗内存、不正当使⽤会造成内存溢出的问题</li>
+</ul>
+<p>注意点：</p>
+<ul>
+<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很⼤，所以不能滥⽤闭包，否则会造成⽹⻚的性能问题，在IE中可能导致内存泄露。</li>
+<li>解决⽅法是，在退出函数之前，将不使⽤的局部变量全部删除</li>
+</ul>
+<hr>
+<h2 id="11-原型对象和构造函数的关系？"><a href="#11-原型对象和构造函数的关系？" class="headerlink" title="11.原型对象和构造函数的关系？"></a>11.原型对象和构造函数的关系？</h2><p>每当定义一个函数数据类型（普通函数、类）时候，会天生自带一个prototype属性，这个属性指向函数的原型对象。<br>当函数经过new调用时，这个函数就成了构造函数，会返回一个全新的实例对象，这个实例对象有proto属性，指向构造函数的原型对象。</p>
+<hr>
+<h2 id="12-原型链"><a href="#12-原型链" class="headerlink" title="12. 原型链"></a>12. 原型链</h2><p><img src="/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/12-1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<hr>
+<h2 id="13-this对象？"><a href="#13-this对象？" class="headerlink" title="13. this对象？"></a>13. this对象？</h2><ul>
+<li>this总是指向函数的直接调⽤者（而非间接调⽤者）</li>
+<li>如果有 new 关键字， this 指向 new 出来的那个对象</li>
+<li>在事件中， this 指向触发这个事件的对象，特殊的是， IE 中的 attachEvent 中的this 总是指向全局对象 Window</li>
+</ul>
+<hr>
+<h2 id="14-js继承"><a href="#14-js继承" class="headerlink" title="14. js继承"></a>14. js继承</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtswts1232/article/details/130683362">继承</a>：子类继承父类的属性和方法，并扩展新的属性和方法<br>继承的实现方式：原型链、对象组合、类继承、组合继承、寄生组合继承</p>
+<ol>
+<li><p>原型链继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 定义父类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Parent</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&quot;parent&quot;</span>;<br>&#125;<br><span class="hljs-comment">// 在父类的原型上定义方法</span><br><span class="hljs-title class_">Parent</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>;<br>&#125;<br><span class="hljs-comment">// 定义子类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Child</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&quot;child&quot;</span>;<br>&#125;<br><span class="hljs-comment">// 子类继承父类，这里是关键，实现原型链继承</span><br><span class="hljs-title class_">Child</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Parent</span>();<br><span class="hljs-comment">// 实例化子类</span><br><span class="hljs-keyword">var</span> child1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(child1.<span class="hljs-title function_">getName</span>()); <span class="hljs-comment">// 输出 &quot;child&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>缺点：</p>
+<ul>
+<li>父类引用属性被所有子类实例共享。如果一个实例改变了该属性，那么其他实例的该属性也会被改变。</li>
+</ul>
+</li>
+<li><p>构造函数继承：<br>通过使用call或者apply方法,可以在子类中执行父类的构造函数，从而实现继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript">    <span class="hljs-comment">// 父类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Parent</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">sayHello</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello&quot;</span>);<br>&#125;;<br>&#125;<br><br><span class="hljs-title class_">Parent</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-string">&quot;我是父类prototype上的属性&quot;</span>;<br><span class="hljs-comment">// 子类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Child</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-title class_">Parent</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);<br>&#125;<br><br><span class="hljs-comment">// 创建两个 Child 实例</span><br><span class="hljs-keyword">var</span> child1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();<br><span class="hljs-keyword">var</span> child2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(child1.<span class="hljs-property">sayHello</span> === child2.<span class="hljs-property">sayHello</span>); <span class="hljs-comment">// 输出 false</span><br></code></pre></td></tr></table></figure>
+
+<p>优点：不会出现原型链继承出现的问题。<br>缺点：它不能继承父类 prototype 上的属性</p>
+</li>
+<li><p>组合继承</p>
+<p>原型链继承 + 构造函数继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 父类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Parent</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">sayHello</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello&quot;</span>);<br>&#125;;<br>&#125;<br><br><span class="hljs-title class_">Parent</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-string">&quot;我是父类prototype上的属性&quot;</span>; <br><br><span class="hljs-comment">// 子类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Child</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-title class_">Parent</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);<br>&#125;<br><br><span class="hljs-title class_">Child</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Parent</span>();<br><br><span class="hljs-keyword">var</span> child1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();<br></code></pre></td></tr></table></figure>
+
+<p>优点：解决了构造继承的问题<br>缺点：调用了 2 次 Parent()。 它在 child 的 prototype 上添加了父类的属性和方法。</p>
+</li>
+<li><p>寄生组合继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript">   <span class="hljs-comment">// 父类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Parent</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">sayHello</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello&quot;</span>);<br>  &#125;;<br>&#125;<br> <br><span class="hljs-title class_">Parent</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-string">&quot;我是父类prototype上的属性&quot;</span>;<br><span class="hljs-comment">// 子类</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Child</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title class_">Parent</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);<br>&#125;<br> <br> <br><span class="hljs-comment">// 创建一个没有实例方法的父类实例作为子类的原型</span><br><span class="hljs-title class_">Child</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">Parent</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);<br><span class="hljs-comment">// 修复构造函数的指向</span><br><span class="hljs-title class_">Child</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> = <span class="hljs-title class_">Child</span>;<br> <br><span class="hljs-keyword">var</span> child1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();<br></code></pre></td></tr></table></figure>
+
+<p>object.create(Parent.prototype)  创造了一个空对象，这个空对象的__proto__ 是 Parent.prototype 。所以它继承了 Parent 原型链上的属性和方法。由于我们删除了Child.prototype &#x3D; new Parent(); 我们不再调用 Parent() 构造函数，因此 Child.prototype 不再包含 Parent 的属性和方法。所以第三小节部分提到的问题就解决了，Child.prototype 上不再有 sayHello 方法。<br>优点：</p>
+<ul>
+<li>原型属性不会被共享</li>
+<li>可以继承父类的属性和方法</li>
+<li>只调用1次Parent(),因此它不会再child的prototype上添加Parent的属性和方法<br>缺点：<br>child.prototype的原始属性和方法会丢失</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="15-js浅拷贝和深拷贝"><a href="#15-js浅拷贝和深拷贝" class="headerlink" title="15. js浅拷贝和深拷贝"></a>15. js浅拷贝和深拷贝</h2><p>JS 分为原始类型和引用类型，对于原始类型的拷贝，并没有深浅拷贝的区别，我们讨论的深浅拷贝都只针对引用类型。</p>
+<ul>
+<li>浅拷贝和深拷贝都复制了值和地址，都是为了解决引用类型赋值后互相影响的问题。</li>
+<li>但是浅拷贝只进行一层复制，深层次的引用类型还是共享内存地址，原对象和拷贝对象还是会互相影响。</li>
+<li>深拷贝就是无限层级拷贝，深拷贝后的原对象不会和拷贝对象互相影响。</li>
+</ul>
+<h3 id="浅拷贝手段"><a href="#浅拷贝手段" class="headerlink" title="浅拷贝手段"></a>浅拷贝手段</h3><ol>
+<li><p>手动实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">shallowClone</span> = (<span class="hljs-params">target</span>) =&gt; &#123;<br> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target === <span class="hljs-string">&#x27;object&#x27;</span> &amp;&amp; target !== <span class="hljs-literal">null</span>) &#123;<br>     <span class="hljs-keyword">const</span> cloneTarget = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(target) ? []: &#123;&#125;;<br>     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> prop <span class="hljs-keyword">in</span> target) &#123;<br>         <span class="hljs-keyword">if</span> (target.<span class="hljs-title function_">hasOwnProperty</span>(prop)) &#123;<br>             cloneTarget[prop] = target[prop];<br>         &#125;<br>     &#125;<br>     <span class="hljs-keyword">return</span> cloneTarget;<br> &#125; <span class="hljs-keyword">else</span> &#123;<br>     <span class="hljs-keyword">return</span> target;<br> &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>object.assign()<br>Object.assign() 拷贝的是对象的属性的引用，而不是对象本身。<br>Object.assign 只会拷⻉所有的属性值到新的对象中，如果属性值是对象的话，拷⻉的是地址，所以并不是深拷⻉</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;sy&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> &#125;;<br><span class="hljs-keyword">const</span> obj2 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">assign</span>(&#123;&#125;, obj, &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;sss&#x27;</span>&#125;);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj2);<span class="hljs-comment">//&#123; name: &#x27;sss&#x27;, age: 18 &#125;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>concat</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-keyword">let</span> newArr = arr.<span class="hljs-title function_">concat</span>();<br>newArr[<span class="hljs-number">1</span>] = <span class="hljs-number">100</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr);<span class="hljs-comment">//[ 1, 2, 3 ]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>slice</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-keyword">let</span> newArr = arr.<span class="hljs-title function_">concat</span>();<br>newArr[<span class="hljs-number">1</span>] = <span class="hljs-number">100</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr);<span class="hljs-comment">//[ 1, 2, 3 ]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>…展开运算符</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-keyword">let</span> newArr = [...arr];<span class="hljs-comment">//跟arr.slice()是一样的效果</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="深拷贝手段"><a href="#深拷贝手段" class="headerlink" title="深拷贝手段"></a>深拷贝手段</h3><ol>
+<li>JSON.parse(JSON.stringify())<br>这种方法虽然可以实现数组或对象深拷贝，但不能处理函数对象或undefined（会显示为null）；结构复杂的数据function、undefined、Symbol会被过滤掉。</li>
+<li>lodash库 cloneDeep()</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/26/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-css%E7%AF%87/">
+                        <span class="hidden-mobile">前端面试-CSS篇</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
