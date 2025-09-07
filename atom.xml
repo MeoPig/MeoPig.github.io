@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-08-31T15:28:16.438Z</updated>
+  <updated>2025-09-03T15:19:42.354Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,96 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端面试-VUE篇</title>
+    <link href="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/"/>
+    <id>http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/</id>
+    <published>2025-09-03T15:04:13.000Z</published>
+    <updated>2025-09-03T15:19:42.354Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-虚拟dom渲染到页面上时，框架做了什么？&quot;&gt;&lt;a href=&quot;#1-虚拟dom渲染到页面上时，框架做了什么？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端面试-性能优化篇</title>
+    <link href="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/"/>
+    <id>http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/</id>
+    <published>2025-09-03T13:58:42.000Z</published>
+    <updated>2025-09-03T14:03:40.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-怎么实现大文件的上传？&quot;&gt;&lt;a href=&quot;#1-怎么实现大文件的上传？&quot; class=&quot;headerlink&quot; title=&quot;1. 怎么实现大文件的上传？&quot;&gt;&lt;/a&gt;1. 怎么实现大文件的上传？&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;分片上传(Chunked</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端面试-工程化篇</title>
+    <link href="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%AF%87/"/>
+    <id>http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%AF%87/</id>
+    <published>2025-09-03T13:08:37.000Z</published>
+    <updated>2025-09-03T15:04:36.334Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端面试-HTTP篇</title>
+    <link href="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTTP%E7%AF%87/"/>
+    <id>http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTTP%E7%AF%87/</id>
+    <published>2025-09-03T12:52:59.000Z</published>
+    <updated>2025-09-03T14:13:07.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-websocket和http的区别&quot;&gt;&lt;a href=&quot;#1-websocket和http的区别&quot; class=&quot;headerlink&quot; title=&quot;1.websocket和http的区别&quot;&gt;&lt;/a&gt;1.websocket和http的区别&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>前端面试-js篇</title>
     <link href="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/"/>
     <id>http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/</id>
     <published>2025-08-30T08:04:20.000Z</published>
-    <updated>2025-08-31T15:28:16.438Z</updated>
+    <updated>2025-09-06T13:00:30.525Z</updated>
     
     
       
@@ -63,7 +148,7 @@
     <link href="http://example.com/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/"/>
     <id>http://example.com/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/</id>
     <published>2025-08-23T10:09:00.000Z</published>
-    <updated>2025-08-30T07:29:13.911Z</updated>
+    <updated>2025-09-04T15:35:48.508Z</updated>
     
     
       
