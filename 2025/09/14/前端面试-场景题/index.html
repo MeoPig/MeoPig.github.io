@@ -16,20 +16,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 怎么实现大文件的上传？ 分片上传(Chunked Upload):将大文件拆分成小的文件块(chunk)，然后通过多个并行的请求依次上传这些文件块。服务器接收到每个文件块后进行存储，最后合并所有文件块以还原原始文件。这种方法可以降低单个请求的负载，并允许在网络中断或上传失败时可以从断点续传。 流式上传(Streaming Upload):客户端使用流方式逐步读取文件的内容，并将数据流通过 P">
+    <meta name="description" content="1. Vue怎么实现权限管理？路由权限方案一：初始化即加载全部路由，并且在路由上添加上相应权限信息，每次路由跳转前做校验。  缺点： 加载所有路由，如果路由很多，而用户不是所有的权限，那么就会造成不必要的加载。 全局路由守卫里，每次路由跳转都要进行权限判断。 菜单信息写死在前端里，要改个权限信息，需要重新编译，适合角色固定的情况， 菜单和路由耦合在一起，定义路由的时候还要添加菜单显示标题，而且路由">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端面试-性能优化篇">
-<meta property="og:url" content="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/index.html">
+<meta property="og:title" content="前端面试-场景题">
+<meta property="og:url" content="http://example.com/2025/09/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%9C%BA%E6%99%AF%E9%A2%98/index.html">
 <meta property="og:site_name" content="MeoPig">
-<meta property="og:description" content="1. 怎么实现大文件的上传？ 分片上传(Chunked Upload):将大文件拆分成小的文件块(chunk)，然后通过多个并行的请求依次上传这些文件块。服务器接收到每个文件块后进行存储，最后合并所有文件块以还原原始文件。这种方法可以降低单个请求的负载，并允许在网络中断或上传失败时可以从断点续传。 流式上传(Streaming Upload):客户端使用流方式逐步读取文件的内容，并将数据流通过 P">
+<meta property="og:description" content="1. Vue怎么实现权限管理？路由权限方案一：初始化即加载全部路由，并且在路由上添加上相应权限信息，每次路由跳转前做校验。  缺点： 加载所有路由，如果路由很多，而用户不是所有的权限，那么就会造成不必要的加载。 全局路由守卫里，每次路由跳转都要进行权限判断。 菜单信息写死在前端里，要改个权限信息，需要重新编译，适合角色固定的情况， 菜单和路由耦合在一起，定义路由的时候还要添加菜单显示标题，而且路由">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-09-03T13:58:42.000Z">
-<meta property="article:modified_time" content="2025-09-11T15:21:36.674Z">
+<meta property="article:published_time" content="2025-09-14T10:32:25.000Z">
+<meta property="article:modified_time" content="2025-09-14T11:33:18.830Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>前端面试-性能优化篇 - MeoPig</title>
+  <title>前端面试-场景题 - MeoPig</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="前端面试-性能优化篇">
+            <span class="h2" id="subtitle" title="前端面试-场景题">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2025-09-03 21:58" pubdate>
-        2025年9月3日 晚上
+      <time datetime="2025-09-14 18:32" pubdate>
+        2025年9月14日 晚上
       </time>
     </span>
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.3k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      11 分钟
     </span>
   
 
@@ -235,58 +235,59 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">前端面试-性能优化篇</h1>
+            <h1 style="display: none">前端面试-场景题</h1>
             
             <div class="markdown-body">
-              <h2 id="1-怎么实现大文件的上传？"><a href="#1-怎么实现大文件的上传？" class="headerlink" title="1. 怎么实现大文件的上传？"></a>1. 怎么实现大文件的上传？</h2><ul>
-<li>分片上传(Chunked Upload):将大文件拆分成小的文件块(chunk)，然后通过多个并行的请求依次上传这些文件块。服务器接收到每个文件块后进行存储，最后合并所有文件块以还原原始文件。这种方法可以降低单个请求的负载，并允许在网络中断或上传失败时可以从断点续传。</li>
-<li>流式上传(Streaming Upload):客户端使用流方式逐步读取文件的内容，并将数据流通过 POST 请求发送给服务器。服务器端能够逐步接收并处理这些数据流，而无需等待完整的文件上传完成。这种方法适用于较大的文件，减少了内存占用和传输延迟。</li>
-<li>使用专门的文件上传服务:有一些第三方服务可供使用，例如云存储服务(如 Amazon S3、Google cloud3.Storage)、文件传输协议(如 FTP、SFTP)等。这些服务通常提供了高可靠性、可扩展性和安全性，并且针对大文件上传进行了优化。</li>
-<li>压缩文件上传:如果可能，可以在客户端先对文件进行压缩，然后再进行上传。压缩后的文件大小更小，可以减少上传时间和网络带宽消耗。</li>
-<li>并发上传:通过多个并行的请求同时上传文件的不同部分，以加快整个上传过程。这需要服务器端支持并发上传并正确处理分片或部分文件的合并。</li>
-<li>断点续传:记录上传进度和状态，以便在网络中断或上传失败后能够从上次中断的位置继续上传。可以使用客户端或服务器端的断点续传机制来实现。</li>
-</ul>
-<h2 id="2-说说常规的前端性能优化手段？"><a href="#2-说说常规的前端性能优化手段？" class="headerlink" title="2. 说说常规的前端性能优化手段？"></a>2. 说说常规的前端性能优化手段？</h2><ul>
-<li>content 方面<ul>
-<li>减少HTTP请求：合并文件、CSS精灵、inline Image</li>
-<li>减少DNS查询： DNS查询完成之前浏览器不能从这个主机下载任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS拆线呢</li>
-<li>避免重定向：多余的中间件访问</li>
-<li>使用Ajax可缓存</li>
-<li>非必须组件延迟加载</li>
-<li>未来所需组件预先加载</li>
-<li>减少DOM元素数量</li>
-<li>将资源放到不同域下：浏览器同时从一个域下载资源的数目有限，增加域可以提高并行下载量</li>
-<li>减少iframe数量</li>
+              <h2 id="1-Vue怎么实现权限管理？"><a href="#1-Vue怎么实现权限管理？" class="headerlink" title="1. Vue怎么实现权限管理？"></a>1. Vue怎么实现权限管理？</h2><h3 id="路由权限"><a href="#路由权限" class="headerlink" title="路由权限"></a>路由权限</h3><p><strong>方案一</strong>：初始化即加载全部路由，并且在路由上添加上相应权限信息，每次路由跳转前做校验。</p>
+<ul>
+<li>缺点：<ul>
+<li>加载所有路由，如果路由很多，而用户不是所有的权限，那么就会造成不必要的加载。</li>
+<li>全局路由守卫里，每次路由跳转都要进行权限判断。</li>
+<li>菜单信息写死在前端里，要改个权限信息，需要重新编译，适合角色固定的情况，</li>
+<li>菜单和路由耦合在一起，定义路由的时候还要添加菜单显示标题，而且路由不一定作为菜单，还要多加字段进行标识。</li>
 </ul>
 </li>
-<li>Server 方面<ul>
-<li>使用CDN</li>
-<li>添加Expires或者Cache-Conntrol响应头</li>
-<li>对组件使用Gzip压缩</li>
-<li>配置ETag</li>
-<li>Flush Buffer Early</li>
-<li>Ajax使用GET进行请求</li>
-<li>避免空链接</li>
+</ul>
+<p><strong>方案二</strong>：初始化时先挂载不需要权限控制的路由，比如登录页404等。如果用户通过URL强制访问，则会直接进入404，相当于从源头控制。<br>登陆后，获取用户的权限信息，然后筛选有权限访问的路由，在全局路由守卫里进行调用addRoutes添加路由。</p>
+<ul>
+<li>缺点：<ul>
+<li>全局路由守卫里，每次路由跳转都要进行权限判断。</li>
+<li>菜单信息写死在前端里，要改个权限信息，需要重新编译，适合角色固定的情况，</li>
+<li>菜单和路由耦合在一起，定义路由的时候还要添加菜单显示标题，而且路由不一定作为菜单，还要多加字段进行标识。</li>
 </ul>
 </li>
-<li>Cookie方面<ul>
-<li>减少cookie大小</li>
-<li>引入资源的域名不要包含cookie</li>
+</ul>
+<h3 id="菜单权限"><a href="#菜单权限" class="headerlink" title="菜单权限"></a>菜单权限</h3><p><strong>方案一</strong>：菜单与路由分离，菜单由后端返回，前端定义路由信息。</p>
+<ul>
+<li><p>每次路由跳转的时候都要判断权限，这里的判断也很简单，因为菜单的name与路由的name是一一对应的，而后端返回的菜单就已经是经过权限过滤的。</p>
+</li>
+<li><p>如果根据路由name找不到对应的菜单，就表示用户有没权限访问。</p>
+</li>
+<li><p>如果路由很多，可以在应用初始化的时候，只挂载不需要权限控制的路由。取得后端返回的菜单后，根据菜单与路由的对应关系，筛选出可访问的路由，通过addRoutes动态挂载。</p>
+</li>
+<li><p><strong>缺点</strong>：</p>
+<ul>
+<li>菜单需要与路由做一一对应，前端添加了新功能，需要通过菜单管理功能添加新的菜单，如果菜单配置的不对会导致应用不能正常使用。</li>
+<li>全局路由守卫里，每次路由跳转都要做判断。</li>
 </ul>
 </li>
-<li>CSS 方面<ul>
-<li>将样式表放到页面顶部</li>
-<li>不适用CSS表达式</li>
-<li>不使用IE的Filter</li>
 </ul>
+<p><strong>方案二</strong>：菜单和路由都由后端返回</p>
+<p>前端统一定义路由组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Home</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&quot;../pages/Home.vue&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">UserInfo</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&quot;../pages/UserInfo.vue&quot;</span>);<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    <span class="hljs-attr">home</span>: <span class="hljs-title class_">Home</span>,<br>    <span class="hljs-attr">userInfo</span>: <span class="hljs-title class_">UserInfo</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>后端路由组件返回以下格式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript">[<br>    &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;home&quot;</span>,<br>        <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/&quot;</span>,<br>        <span class="hljs-attr">component</span>: <span class="hljs-string">&quot;home&quot;</span><br>    &#125;,<br>    &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;home&quot;</span>,<br>        <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/userinfo&quot;</span>,<br>        <span class="hljs-attr">component</span>: <span class="hljs-string">&quot;userInfo&quot;</span><br>    &#125;<br>]<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在将后端返回路由通过addRoutes动态挂载之间，需要将数据处理一下，将component字段换为真正的组件</p>
 </li>
-<li>JS 方面<ul>
-<li>将脚本放到页面底部</li>
-<li>将JS和CSS外部引入</li>
-<li>压缩JS CSS</li>
-<li>删除不需要的脚本</li>
-<li>减少对DOM的访问</li>
-<li>合理设计事件监听器</li>
+<li><p>如果有嵌套路由，后端功能设计的时候，要注意添加相应的字段，前端拿到数据也要做相应的处理</p>
+</li>
+<li><p><strong>缺点</strong>：</p>
+<ul>
+<li>前后端配合要求高</li>
+<li>全局路由守卫里，每次路由跳转都要做判断。</li>
 </ul>
 </li>
 </ul>
@@ -310,18 +311,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">前端面试-VUE篇</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%AF%87/">
-                        <span class="hidden-mobile">前端面试-工程化篇</span>
+                      <a href="/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/">
+                        <span class="hidden-mobile">前端面试-VUE篇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
