@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/5-1.png">
 <meta property="og:image" content="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/5-2.png">
 <meta property="article:published_time" content="2025-09-03T15:04:13.000Z">
-<meta property="article:modified_time" content="2025-09-14T15:30:51.178Z">
+<meta property="article:modified_time" content="2025-09-15T15:54:27.643Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-VUE%E7%AF%87/5-1.png">
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      116 分钟
+      118 分钟
     </span>
   
 
@@ -603,6 +603,13 @@
 <li><strong>mitt.js</strong></li>
 <li><strong>Pinia</strong></li>
 </ol>
+<h2 id="14-v-model原理"><a href="#14-v-model原理" class="headerlink" title="14. v-model原理"></a>14. v-model原理</h2><p>v-model是一个指令用于双向绑定。<br><strong>原理</strong>：</p>
+<ul>
+<li>在模板中用v-model绑定一个变量到表单元素上</li>
+<li>vue在解析模板时，会将v-model指令转换为合适的属性和事件绑定。对于大多数表单元素，他会将value属性于输入框的当前值进行绑定，并监听inbput事件来实时更新绑定的数据。</li>
+<li>当用户在输入框中键入或选择内容时，会触发Input事件。Vue会捕获该事件并更新绑定的数据，以及根据数据的变化重新渲染视图。</li>
+<li>同样，如果在表单元素上使用v-model的lazy修饰符，vue会监听change事件，而不是input事件。<br>总的来说，原理就是通过监听表单元素的输入事件，将用户的输入同步到vue实例中的属性，并在属性值变化时重新渲染视图。</li>
+</ul>
 
             </div>
             <hr>
