@@ -24,7 +24,7 @@
 <meta property="og:description" content="1.websocket和http的区别使用场景对比HTTP HTTP（Hypertext Transfer Protocol）是一种应用层协议，最初设计用于在客户端和服务器之间传输超文本。它是一种无状态的协议，每个请求都是独立的，不保留前一次请求的状态信息。HTTP 通常用于传输网页、图片、文本等静态资源，以及通过 RESTful API 进行数据传输。  WebSocket WebSocket">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-03T12:52:59.000Z">
-<meta property="article:modified_time" content="2025-09-03T14:13:07.714Z">
+<meta property="article:modified_time" content="2025-09-21T15:59:19.347Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      3.4k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      29 分钟
     </span>
   
 
@@ -279,7 +279,48 @@
 <li>IndexedDB:IndexedDB 是浏览器提供的一个客户端数据库，可以在不同页面之间存储和共享数据。通过在一个页面中写入数据，另一个页面可以读取该数据。</li>
 <li>WebSockets:WebSockets 提供了全双工的、双向通信通道，可以在客户端和服务器之间进行实时通信。通过建立 WebSocket 连接，可以在不同页面之间通过服务器传递数据并实现实时更新。</li>
 </ul>
-
+<h2 id="3-什么是HTTP-HTTP-和-HTTPS-的区别"><a href="#3-什么是HTTP-HTTP-和-HTTPS-的区别" class="headerlink" title="3. 什么是HTTP? HTTP 和 HTTPS 的区别?"></a>3. 什么是HTTP? HTTP 和 HTTPS 的区别?</h2><p>HTTP（HyperText Transfer Protocol，超文本传输协议）是浏览器与服务器之间通信的基础协议。当你在浏览器输入网址，浏览器就会通过 HTTP 向服务器请求网页内容，服务器再通过 HTTP 把 HTML、图片、CSS 等数据返回给浏览器。</p>
+<p>为了保证这些隐私数据能加密传输，让HTTP运行安全的SSL&#x2F;TLS协议上，即 HTTPS &#x3D; HTTP + SSL&#x2F;TLS，通过 SSL证书来验证服务器的身份，并为浏览器和服务器之间的通信进行加密。</p>
+<p>对于HTTPS请求服务器的流程：</p>
+<ul>
+<li>首先客户端通过URL访问服务器建立SSL链接</li>
+<li>服务器收到客户端请求后，会将网站支持的证书信息传递一份给客户端。</li>
+<li>客户端的服务器开始协商SSL链接的安全等级。</li>
+<li>客户端的浏览器根据双方同意的安全等级，建立会话密钥，然后利用网站的公钥将会话密钥加密，并发送给网站。</li>
+<li>服务器利用自己的私钥解密出会话密钥。</li>
+<li>服务器利用会话密钥加密与客户端之间的通信。</li>
+</ul>
+<p>简单说：</p>
+<ul>
+<li>你打开一个 HTTPS 网站，浏览器和服务器先“打招呼”。</li>
+<li>服务器发一个“身份证”（证书）给浏览器，证明自己是真的。</li>
+<li>浏览器检查身份证有效后，生成一个“密钥”，用服务器的“公钥”加密发过去。</li>
+<li>服务器用自己的“私钥”解开，得到这个密钥。</li>
+<li>之后，双方用这个密钥加密聊天（传输数据）。</li>
+</ul>
+<p>区别</p>
+<ul>
+<li>HTTPS是HTTP协议的安全版本，HTTP协议的数据传输是明文的，是不安全的，HTTPS使用了SSL&#x2F;TLS协议进行了加密处理，相对更安全</li>
+<li>HTTP 和 HTTPS 使用连接方式不同，默认端口也不一样，HTTP是80，HTTPS是443</li>
+<li>HTTPS 由于需要设计加密以及多次握手，性能方面不如 HTTP</li>
+<li>HTTPS需要SSL，SSL 证书需要钱，功能越强大的证书费用越高</li>
+</ul>
+<h2 id="4-为什么HTTPS比HTTP安全"><a href="#4-为什么HTTPS比HTTP安全" class="headerlink" title="4. 为什么HTTPS比HTTP安全?"></a>4. 为什么HTTPS比HTTP安全?</h2><p>HTTP在通信过程中，存在以下问题：</p>
+<ul>
+<li>通信使用明文（不加密），内容可能被窃听</li>
+<li>不验证通信方的身份，因此有可能遭遇伪装</li>
+</ul>
+<p>HTTPS是建立在SSL之上，其安全性由SSL来保证。在采用SSL后，HTTP就拥有了HTTPS的加密、证书和完整性保护这些功能<br><code>SSL(Secure Sockets Layer 安全套接字协议),及其继任者传输层安全（Transport Layer Security，TLS）是为网络通信提供安全及数据完整性的一种安全协议</code></p>
+<h2 id="5-说说HTTP1-0-x2F-1-1和HTTP2-0的区别？"><a href="#5-说说HTTP1-0-x2F-1-1和HTTP2-0的区别？" class="headerlink" title="5.说说HTTP1.0&#x2F;1.1和HTTP2.0的区别？"></a>5.说说HTTP1.0&#x2F;1.1和HTTP2.0的区别？</h2><p><strong>一、HTTP1.0</strong><br>HTTP协议的第二个版本，第一个在通讯中指定版本号的HTTP协议版本</p>
+<p>HTTP 1.0 浏览器与服务器只保持短暂的连接，每次请求都需要与服务器建立一个TCP连接。服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求。如果需要建立长连接，需要设置一个非标准的Connection字段 Connection: keep-alive。<br>简单来讲，每次与服务器交互，都需要新开一个连接。</p>
+<p><strong>二、HTTP1.1</strong><br>在HTTP1.1中，默认支持长连接（Connection: keep-alive），即在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟。建立一次连接，多次请求均由这个连接完成。<br>同时，HTTP 1.1还允许客户端不用等待上一次请求结果返回，就可以发出下一次请求，但服务器端必须按照接收到客户端请求的先后顺序依次回送响应结果，以保证客户端能够区分出每次请求的响应内容，这样也显著地减少了整个下载过程所需要的时间。<br>时，HTTP1.1在HTTP1.0的基础上，增加更多的请求头和响应头来完善的功能，如。<br><strong>三、HTTP2.0</strong><br>而HTTP2.0在相比之前版本，性能上有很大的提升，如添加了一个特性：</p>
+<ul>
+<li>多路复用：HTTP&#x2F;2 复用TCP连接，在一个连接里，客户端和浏览器都可以同时发送多个请求或回应，而且不用按照顺序一一对应，这样就避免了”队头堵塞”</li>
+<li>二进制分帧：帧是HTTP2通信中最小单位信息。HTTP&#x2F;2 采用二进制格式传输数据，而非 HTTP 1.x的文本格式，解析起来更高效。</li>
+<li>首部压缩：在客户端和服务器端使用“首部表”来跟踪和存储之前发送的键值对，对于相同的数据，不再通过每次请求和响应发送。</li>
+<li>服务器推送：允许服务端推送资源给客户端。服务器会顺便把一些客户端需要的资源一起推送到客户端，如在响应一个页面请求中，就可以随同页面的其它资源<br>免得客户端再次创建连接发送请求到服务器端获取，这种方式非常合适加载静态资源。</li>
+</ul>
+<h2 id="6-说说HTTP-常见的状态码有哪些，适用场景？"><a href="#6-说说HTTP-常见的状态码有哪些，适用场景？" class="headerlink" title="6. 说说HTTP 常见的状态码有哪些，适用场景？"></a>6. 说说HTTP 常见的状态码有哪些，适用场景？</h2>
             </div>
             <hr>
             <div>
