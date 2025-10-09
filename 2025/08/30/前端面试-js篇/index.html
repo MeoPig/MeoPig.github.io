@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/8-1.png">
 <meta property="og:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/12-1.png">
 <meta property="article:published_time" content="2025-08-30T08:04:20.000Z">
-<meta property="article:modified_time" content="2025-09-11T14:16:02.976Z">
+<meta property="article:modified_time" content="2025-10-09T15:28:42.592Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/8-1.png">
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      139 分钟
+      143 分钟
     </span>
   
 
@@ -633,6 +633,25 @@
 <li>浏览器直接渲染出可视页面（首屏快）。</li>
 <li>同时，JavaScript 也会被下载并“激活”（称为 Hydration），使页面具备交互能力。</li>
 </ul>
+<h2 id="38-js-事件循环？"><a href="#38-js-事件循环？" class="headerlink" title="38. js 事件循环？"></a>38. js 事件循环？</h2><p><strong>定义</strong><br>事件循环 是 JavaScript 实现异步非阻塞编程的核心机制。<br>它协调调用栈（Call Stack）、任务队列（Task Queue）和微任务队列（Microtask Queue），确保代码有序执行。</p>
+<p><strong>执行机制流程</strong></p>
+<ul>
+<li><strong>执行同步代码</strong>：放入调用栈，逐个执行。</li>
+<li><strong>遇到异步任务</strong>： <ul>
+<li>setTimeout、setInterval、I&#x2F;O、postMessage → 进入宏任务队列（Task Queue）</li>
+<li>Promise.then、MutationObserver → 进入微任务队列（Microtask Queue）</li>
+</ul>
+</li>
+<li><strong>同步代码执行完毕</strong>后：<ul>
+<li>先清空微任务队列（全部执行完）</li>
+<li>取一个宏任务执行</li>
+<li>再清空微任务队列</li>
+<li>循环往复</li>
+</ul>
+</li>
+</ul>
+<p><strong>例子</strong>：</p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;1&#x27;</span>);<br><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;2&#x27;</span>);<br>&#125;, <span class="hljs-number">0</span>);<br><br><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;3&#x27;</span>);<br>&#125;);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;4&#x27;</span>);<br><br><span class="hljs-comment">// 输出顺序：1 → 4 → 3 → 2</span><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
