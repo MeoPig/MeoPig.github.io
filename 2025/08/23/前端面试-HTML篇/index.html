@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://example.com/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/10-1.png">
 <meta property="og:image" content="http://example.com/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/16-1.png">
 <meta property="article:published_time" content="2025-08-23T10:09:00.000Z">
-<meta property="article:modified_time" content="2025-09-04T15:35:48.508Z">
+<meta property="article:modified_time" content="2025-11-18T07:59:48.626Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="前端面试">
 <meta name="twitter:card" content="summary_large_image">
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.8k 字
+      4.3k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32 分钟
+      37 分钟
     </span>
   
 
@@ -277,6 +277,7 @@
 <li>计算元素位置进行页面布局</li>
 <li>浏览器开始渲染并绘制页面</li>
 </ul>
+<p><strong>什么是 reflow(回流)？</strong><br>   reflow 的本质就是更新了元素的几何属性，比如改变元素的宽度、高度等等，要去重新计算 layout 树。<br>   当进行了会影响布局树的操作后，需要重新计算布局树，会引发 layout。<br>   为了避免连续的多次操作导致布局树反复计算，浏览器会合并这些操作，当 JS 代码全部完成后再进行统一计算。所以，改动属性造成的 reflow 是异步完成的。<br>   也同样因为如此，当 JS 获取布局属性时，就可能造成无法获取到最新的布局信息。<br>   浏览器在反复权衡下，最终决定获取属性立即 reflow。<br><strong>什么是 repaint(重绘)？</strong><br>   repaint 的本质就是重新根据分层信息计算了绘制指令。<br>   当改动了可见样式后，就需要重新计算，会引发 repaint。<br>   由于元素的布局信息也属于可见样式，所以 reflow 一定会引起 repaint。<br>   和回流相比，重绘省去了布局和分层阶段，所以执行效率会比重排操作要高一些。</p>
 <hr>
 <h2 id="4-行内元素有哪些？块级元素有哪些？空元素有哪些"><a href="#4-行内元素有哪些？块级元素有哪些？空元素有哪些" class="headerlink" title="4. 行内元素有哪些？块级元素有哪些？空元素有哪些"></a>4. 行内元素有哪些？块级元素有哪些？空元素有哪些</h2><p><img src="/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/4-1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
 <hr>
@@ -376,6 +377,18 @@
 <h2 id="15-在css-x2F-js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求⼀般情况下有哪些地方会有缓存处理？"><a href="#15-在css-x2F-js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求⼀般情况下有哪些地方会有缓存处理？" class="headerlink" title="15.在css&#x2F;js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求⼀般情况下有哪些地方会有缓存处理？"></a>15.在css&#x2F;js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求⼀般情况下有哪些地方会有缓存处理？</h2><p>dns 缓存， cdn 缓存，浏览器缓存，服务器缓存</p>
 <hr>
 <h2 id="16-行内元素和块内元素有什么区别？"><a href="#16-行内元素和块内元素有什么区别？" class="headerlink" title="16.行内元素和块内元素有什么区别？"></a>16.行内元素和块内元素有什么区别？</h2><p><img src="/2025/08/23/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-HTML%E7%AF%87/16-1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<hr>
+<h2 id="17-iframe是什么？有哪些优缺点？"><a href="#17-iframe是什么？有哪些优缺点？" class="headerlink" title="17.iframe是什么？有哪些优缺点？"></a>17.iframe是什么？有哪些优缺点？</h2><p>iframe可以在一个网站里面嵌入另一个网站的内容。<br>优点：</p>
+<ol>
+<li>可以原封不动的把嵌入的网页展现出来</li>
+<li>如果遇到加载缓慢的第三方内容如图标和广告，这些问题可以由iframe来解决。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>iframe里面的样式、脚本资源会增加请求次数，对于大型网站不可取。</li>
+<li>设备兼容性差。</li>
+<li>iframe会阻碍页面的onload事件，导致页面加载速度变慢。</li>
+</ol>
 <hr>
 
             </div>

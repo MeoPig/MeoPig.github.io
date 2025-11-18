@@ -24,7 +24,7 @@
 <meta property="og:description" content="1. Vue怎么实现权限管理？路由权限方案一：初始化即加载全部路由，并且在路由上添加上相应权限信息，每次路由跳转前做校验。  缺点： 加载所有路由，如果路由很多，而用户不是所有的权限，那么就会造成不必要的加载。 全局路由守卫里，每次路由跳转都要进行权限判断。 菜单信息写死在前端里，要改个权限信息，需要重新编译，适合角色固定的情况， 菜单和路由耦合在一起，定义路由的时候还要添加菜单显示标题，而且路由">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-14T10:32:25.000Z">
-<meta property="article:modified_time" content="2025-09-14T11:33:18.830Z">
+<meta property="article:modified_time" content="2025-11-18T12:18:31.330Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      2.5k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 分钟
+      21 分钟
     </span>
   
 
@@ -290,6 +290,27 @@
 <li>全局路由守卫里，每次路由跳转都要做判断。</li>
 </ul>
 </li>
+</ul>
+<h2 id="2-前端跨页面通信的方法？"><a href="#2-前端跨页面通信的方法？" class="headerlink" title="2. 前端跨页面通信的方法？"></a>2. 前端跨页面通信的方法？</h2><ul>
+<li><strong>LocalStorage 或 SessionStorage</strong>:这两个 Web 存储 API 可以在不同页面之间共享数据。一个页面可以将数据存储在本地存储中，另一个页面则可以读取该数据并进行相应处理。通过监听 storage 事件，可以实现数据的实时更新。</li>
+<li><strong>Cookies</strong>:使用 Cookies 也可以在不同页面之间传递数据。通过设置和读取 Cookie 值，可以在同一域名下的不司页面之间交换信息。</li>
+<li><strong>PostMessage</strong>: window.postMessage()方法允许从一个窗口向另一个窗口发送消息，并在目标窗口上触发.message 事件。通过指定目标窗口的 origin，可以确保只有特定窗口能够接收和处理消息。</li>
+<li><strong>Broadcast Channel</strong>:Broadcast Channel API 允许在同一浏览器下的不同上下文(例如，在不同标签页或iframe 中)之间进行双向通信。它提供了一个类似于发布-订阅模式的机制，通过创建一个广播频道，并在不同上下文中加入该频道，可以实现消息的广播和接收。</li>
+<li><strong>SharedWorker</strong>:sharedWorker 是一个可由多个窗口或标签页共享的 Web Worker，它可以在不同页面之间进行跨页面通信。通过 SharedWorker，多个页面可以通过 postMessage 进行双向通信，并共享数据和执行操作。</li>
+<li><strong>IndexedDB</strong>:IndexedDB 是浏览器提供的一个客户端数据库，可以在不同页面之间存储和共享数据。通过在一个页面中写入数据，另一个页面可以读取该数据。</li>
+<li><strong>WebSockets</strong>:WebSockets 提供了全双工的、双向通信通道，可以在客户端和服务器之间进行实时通信。通过建立 WebSocket 连接，可以在不同页面之间通过服务器传递数据并实现实时更新。</li>
+</ul>
+<h2 id="3-大文件上传处理？"><a href="#3-大文件上传处理？" class="headerlink" title="3. 大文件上传处理？"></a>3. 大文件上传处理？</h2><h3 id="分片上传"><a href="#分片上传" class="headerlink" title="分片上传"></a><strong>分片上传</strong></h3><p>分片上传，就是将所要上传的文件，按照一定的大小，将整个文件分隔成多个数据块（Part）来进行分片上传。上传完之后再由服务端对所有上传的文件进行汇总整合成原始的文件。</p>
+<ol>
+<li>将需要上传的文件按照一定的分割规则，分割成相同大小的数据块；</li>
+<li>初始化一个分片上传任务，返回本次分片上传唯一标识；</li>
+<li>按照一定的策略（串行或并行）发送各个分片数据块；</li>
+<li>发送完成后，服务端根据判断数据上传是否完整，如果完整，则进行数据块合成得到原始文件；</li>
+</ol>
+<h3 id="断点续传"><a href="#断点续传" class="headerlink" title="断点续传"></a><strong>断点续传</strong></h3><p>断点续传指的是在下载或上传时，将下载或上传任务人为的划分为几个部分。<br>每一个部分采用一个线程进行上传或下载，如果碰到网络故障，可以从已经上传或下载的部分开始继续上传下载未完成的部分，而没有必要从头开始上传下载。用户可以节省时间，提高速度。<br>一般实现方式有两种：</p>
+<ul>
+<li>服务器端返回，告知从哪开始</li>
+<li>浏览器端自行处理<br>上传过程中将文件在服务器写为临时文件，等全部写完了（文件上传完），将此临时文件重命名为正式文件即可<br>如果中途上传中断过，下次上传的时候根据当前临时文件大小，作为在客户端读取文件的偏移量，从此位置继续读取文件数据块，上传到服务器从此偏移量继续写入文件即可。</li>
 </ul>
 
             </div>

@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/12-1.png">
 <meta property="og:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/12-2.png">
 <meta property="article:published_time" content="2025-08-30T08:04:20.000Z">
-<meta property="article:modified_time" content="2025-10-19T15:58:02.016Z">
+<meta property="article:modified_time" content="2025-11-18T11:45:47.734Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2025/08/30/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-js%E7%AF%87/8-1.png">
@@ -575,10 +575,10 @@
 </ul>
 <h3 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h3><ul>
 <li>定义：是任意 DOM 元素的一个属性，表示该元素内部的 HTML 内容（作为字符串）</li>
-<li>他将呢日哦那个写入某个DOM节点，不会导致页面重绘</li>
+<li>他写入某个DOM节点，不会导致页面重绘</li>
 <li>在很多情况下都优于document.write(),其原因在于其允许更精确的控制要刷新页面的那一部分。</li>
 </ul>
-<h2 id="33-for…in和-for…of-有什么区别？"><a href="#33-for…in和-for…of-有什么区别？" class="headerlink" title="33. for…in和 for…of 有什么区别？"></a>33. for…in和 for…of 有什么区别？</h2><p>for…of 是ES6新增的，允许便利一个含有iterator接口的数据结构并返回各项的值，和for in的区别如下：</p>
+<h2 id="33-for…in和-for…of-有什么区别？"><a href="#33-for…in和-for…of-有什么区别？" class="headerlink" title="33. for…in和 for…of 有什么区别？"></a>33. for…in和 for…of 有什么区别？</h2><p>for…of 是ES6新增的，允许遍历一个含有iterator接口的数据结构并返回各项的值，和for in的区别如下：</p>
 <ul>
 <li>for…of 遍历获取的是对象的键值，for…in获取的是对象的键名；</li>
 <li>for…in 会遍历对象的整个原型链，不推荐使用，而for…of只遍历当前对象不会遍历原型链。</li>
@@ -629,7 +629,7 @@
 <h2 id="37-js-事件循环？"><a href="#37-js-事件循环？" class="headerlink" title="37. js 事件循环？"></a>37. js 事件循环？</h2><p><strong>定义</strong><br>事件循环 是 JavaScript 实现异步非阻塞编程的核心机制。<br>它协调调用栈（Call Stack）、任务队列（Task Queue）和微任务队列（Microtask Queue），确保代码有序执行。</p>
 <p><strong>执行机制流程</strong></p>
 <ul>
-<li><strong>执行同步代码</strong>：放入调用栈，逐个执行。</li>
+<li><strong>执行同步代码</strong>：放入执行栈，逐个执行。</li>
 <li><strong>遇到异步任务</strong>： <ul>
 <li>setTimeout、setInterval、I&#x2F;O、postMessage → 进入宏任务队列（Task Queue）</li>
 <li>Promise.then、MutationObserver → 进入微任务队列（Microtask Queue）</li>
