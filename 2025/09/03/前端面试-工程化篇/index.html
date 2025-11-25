@@ -24,7 +24,7 @@
 <meta property="og:description" content="1. 什么叫工程化？对前端工程化的理解前端工程化，是指将软件工程的思想和方法应用到前端开发中，通过工具、流程和规范的系统化建设，提升开发效率、代码质量和项目可维护性。其核心目标是：让前端开发更高效、更可靠、更可持续。  一、为什么需要前端工程化？随着 Web 应用日益复杂（SPA、微前端、大型团队协作），传统“写 HTML + CSS + JS”的方式已无法满足需求：  代码量庞大，手动管理依赖困">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-03T13:08:37.000Z">
-<meta property="article:modified_time" content="2025-11-25T04:45:34.353Z">
+<meta property="article:modified_time" content="2025-11-25T07:21:53.647Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      3.5k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      29 分钟
     </span>
   
 
@@ -238,9 +238,9 @@
             <h1 style="display: none">前端面试-工程化篇</h1>
             
             <div class="markdown-body">
-              <h2 id="1-什么叫工程化？"><a href="#1-什么叫工程化？" class="headerlink" title="1. 什么叫工程化？"></a>1. 什么叫工程化？</h2><h1 id="对前端工程化的理解"><a href="#对前端工程化的理解" class="headerlink" title="对前端工程化的理解"></a>对前端工程化的理解</h1><p>前端工程化，是指<strong>将软件工程的思想和方法应用到前端开发中</strong>，通过工具、流程和规范的系统化建设，提升开发效率、代码质量和项目可维护性。其核心目标是：<strong>让前端开发更高效、更可靠、更可持续</strong>。</p>
+              <h2 id="1-什么叫工程化？"><a href="#1-什么叫工程化？" class="headerlink" title="1. 什么叫工程化？"></a>1. 什么叫工程化？</h2><h3 id="对前端工程化的理解"><a href="#对前端工程化的理解" class="headerlink" title="对前端工程化的理解"></a>对前端工程化的理解</h3><p>前端工程化，是指<strong>将软件工程的思想和方法应用到前端开发中</strong>，通过工具、流程和规范的系统化建设，提升开发效率、代码质量和项目可维护性。其核心目标是：<strong>让前端开发更高效、更可靠、更可持续</strong>。</p>
 <hr>
-<h2 id="一、为什么需要前端工程化？"><a href="#一、为什么需要前端工程化？" class="headerlink" title="一、为什么需要前端工程化？"></a>一、为什么需要前端工程化？</h2><p>随着 Web 应用日益复杂（SPA、微前端、大型团队协作），传统“写 HTML + CSS + JS”的方式已无法满足需求：</p>
+<h3 id="一、为什么需要前端工程化？"><a href="#一、为什么需要前端工程化？" class="headerlink" title="一、为什么需要前端工程化？"></a>一、为什么需要前端工程化？</h3><p>随着 Web 应用日益复杂（SPA、微前端、大型团队协作），传统“写 HTML + CSS + JS”的方式已无法满足需求：</p>
 <ul>
 <li>代码量庞大，手动管理依赖困难  </li>
 <li>多人协作易冲突，风格不统一  </li>
@@ -252,20 +252,20 @@
 <p>💡 <strong>前端工程化 &#x3D; 解决“规模”和“协作”带来的问题</strong></p>
 </blockquote>
 <hr>
-<h2 id="二、前端工程化的核心组成部分"><a href="#二、前端工程化的核心组成部分" class="headerlink" title="二、前端工程化的核心组成部分"></a>二、前端工程化的核心组成部分</h2><h3 id="1-模块化（Modularization）"><a href="#1-模块化（Modularization）" class="headerlink" title="1. 模块化（Modularization）"></a>1. <strong>模块化（Modularization）</strong></h3><ul>
+<h3 id="二、前端工程化的核心组成部分"><a href="#二、前端工程化的核心组成部分" class="headerlink" title="二、前端工程化的核心组成部分"></a>二、前端工程化的核心组成部分</h3><h4 id="1-模块化（Modularization）"><a href="#1-模块化（Modularization）" class="headerlink" title="1. 模块化（Modularization）"></a>1. <strong>模块化（Modularization）</strong></h4><ul>
 <li>将代码拆分为独立、可复用的模块</li>
 <li>技术演进：<code>CommonJS</code> → <code>AMD</code> → <code>ES Module</code></li>
 <li>工具支持：Webpack、Vite、Rollup 等打包器</li>
 </ul>
 <p>✅ 解决：全局污染、依赖混乱、代码复用难</p>
 <hr>
-<h3 id="2-组件化（Componentization）"><a href="#2-组件化（Componentization）" class="headerlink" title="2. 组件化（Componentization）"></a>2. <strong>组件化（Componentization）</strong></h3><ul>
+<h4 id="2-组件化（Componentization）"><a href="#2-组件化（Componentization）" class="headerlink" title="2. 组件化（Componentization）"></a>2. <strong>组件化（Componentization）</strong></h4><ul>
 <li>以组件为单位组织 UI 和逻辑（如 Vue&#x2F;React 组件）</li>
 <li>高内聚、低耦合，支持复用和组合</li>
 </ul>
 <p>✅ 解决：UI 重复开发、维护成本高</p>
 <hr>
-<h3 id="3-规范化（Standardization）"><a href="#3-规范化（Standardization）" class="headerlink" title="3. 规范化（Standardization）"></a>3. <strong>规范化（Standardization）</strong></h3><ul>
+<h4 id="3-规范化（Standardization）"><a href="#3-规范化（Standardization）" class="headerlink" title="3. 规范化（Standardization）"></a>3. <strong>规范化（Standardization）</strong></h4><ul>
 <li><strong>代码规范</strong>：ESLint、Prettier（统一风格，减少低级错误）</li>
 <li><strong>提交规范</strong>：Commitlint + Husky（如 <code>feat: add login button</code>）</li>
 <li><strong>目录结构</strong>：约定优于配置（如 <code>src/views</code>, <code>src/components</code>）</li>
@@ -273,7 +273,7 @@
 </ul>
 <p>✅ 解决：团队协作混乱、代码可读性差</p>
 <hr>
-<h3 id="4-自动化（Automation）"><a href="#4-自动化（Automation）" class="headerlink" title="4. 自动化（Automation）"></a>4. <strong>自动化（Automation）</strong></h3><ul>
+<h4 id="4-自动化（Automation）"><a href="#4-自动化（Automation）" class="headerlink" title="4. 自动化（Automation）"></a>4. <strong>自动化（Automation）</strong></h4><ul>
 <li><strong>构建自动化</strong>：Vite&#x2F;Webpack 自动编译、压缩、分包</li>
 <li><strong>测试自动化</strong>：Jest（单元测试）、Cypress（E2E）</li>
 <li><strong>部署自动化</strong>：CI&#x2F;CD（GitHub Actions、Jenkins）</li>
@@ -281,7 +281,7 @@
 </ul>
 <p>✅ 解决：人工操作易出错、重复劳动多</p>
 <hr>
-<h3 id="5-性能与体验优化"><a href="#5-性能与体验优化" class="headerlink" title="5. 性能与体验优化"></a>5. <strong>性能与体验优化</strong></h3><ul>
+<h4 id="5-性能与体验优化"><a href="#5-性能与体验优化" class="headerlink" title="5. 性能与体验优化"></a>5. <strong>性能与体验优化</strong></h4><ul>
 <li>资源压缩（Terser、CSSNano）</li>
 <li>代码分割（Code Splitting）</li>
 <li>缓存策略（Cache-Control、ETag）</li>
@@ -290,9 +290,9 @@
 </ul>
 <p>✅ 解决：页面加载慢、用户体验差</p>
 <hr>
-<h2 id="2-什么是Vite-和Webpack区别是什么"><a href="#2-什么是Vite-和Webpack区别是什么" class="headerlink" title="2. 什么是Vite?和Webpack区别是什么"></a>2. 什么是Vite?和Webpack区别是什么</h2><h1 id="Vite-与-Webpack-的核心区别"><a href="#Vite-与-Webpack-的核心区别" class="headerlink" title="Vite 与 Webpack 的核心区别"></a>Vite 与 Webpack 的核心区别</h1><p>Vite 和 Webpack 都是现代前端构建工具，但设计理念、架构和使用体验有本质不同。</p>
+<h2 id="2-什么是Vite-和Webpack区别是什么"><a href="#2-什么是Vite-和Webpack区别是什么" class="headerlink" title="2. 什么是Vite?和Webpack区别是什么"></a>2. 什么是Vite?和Webpack区别是什么</h2><p>Vite 和 Webpack 都是现代前端构建工具，但设计理念、架构和使用体验有本质不同。</p>
 <hr>
-<h2 id="一、核心理念对比"><a href="#一、核心理念对比" class="headerlink" title="一、核心理念对比"></a>一、核心理念对比</h2><table>
+<h3 id="一、核心理念对比"><a href="#一、核心理念对比" class="headerlink" title="一、核心理念对比"></a>一、核心理念对比</h3><table>
 <thead>
 <tr>
 <th align="left">特性</th>
@@ -330,7 +330,7 @@
 <p>💡 <strong>关键区别</strong>：<br>Webpack 在开发时<strong>先打包再运行</strong>，Vite 在开发时<strong>直接运行源码</strong>。</p>
 </blockquote>
 <hr>
-<h2 id="二、技术原理详解"><a href="#二、技术原理详解" class="headerlink" title="二、技术原理详解"></a>二、技术原理详解</h2><h3 id="Webpack：传统打包流程"><a href="#Webpack：传统打包流程" class="headerlink" title="Webpack：传统打包流程"></a>Webpack：传统打包流程</h3><ol>
+<h3 id="二、技术原理详解"><a href="#二、技术原理详解" class="headerlink" title="二、技术原理详解"></a>二、技术原理详解</h3><h4 id="Webpack：传统打包流程"><a href="#Webpack：传统打包流程" class="headerlink" title="Webpack：传统打包流程"></a>Webpack：传统打包流程</h4><ol>
 <li>启动时扫描所有依赖</li>
 <li>构建完整的依赖图（dependency graph）</li>
 <li>将所有模块打包成一个或多个 bundle（如 <code>main.js</code>）</li>
@@ -338,7 +338,7 @@
 <li>修改代码 → 重新打包 → 刷新&#x2F;HMR</li>
 </ol>
 <p>✅ 优点：兼容性好，生态成熟<br>❌ 缺点：项目越大，启动和热更新越慢</p>
-<h3 id="Vite：利用浏览器原生-ES-模块（ESM）"><a href="#Vite：利用浏览器原生-ES-模块（ESM）" class="headerlink" title="Vite：利用浏览器原生 ES 模块（ESM）"></a>Vite：利用浏览器原生 ES 模块（ESM）</h3><ol>
+<h4 id="Vite：利用浏览器原生-ES-模块（ESM）"><a href="#Vite：利用浏览器原生-ES-模块（ESM）" class="headerlink" title="Vite：利用浏览器原生 ES 模块（ESM）"></a>Vite：利用浏览器原生 ES 模块（ESM）</h4><ol>
 <li>启动开发服务器（基于 <a target="_blank" rel="noopener" href="https://esbuild.github.io/">esbuild</a> + Koa）</li>
 <li>浏览器请求 <code>index.html</code></li>
 <li>HTML 引用 <code>&lt;script type=&quot;module&quot; src=&quot;/src/main.js&quot;&gt;</code></li>
@@ -352,7 +352,7 @@
 </ol>
 <p>✅ 优点：启动快、热更新快、配置简单<br>❌ 缺点：仅支持现代浏览器（不支持 IE）</p>
 <hr>
-<h2 id="三、功能对比表"><a href="#三、功能对比表" class="headerlink" title="三、功能对比表"></a>三、功能对比表</h2><table>
+<h3 id="三、功能对比表"><a href="#三、功能对比表" class="headerlink" title="三、功能对比表"></a>三、功能对比表</h3><table>
 <thead>
 <tr>
 <th align="left">功能</th>
@@ -407,7 +407,63 @@
 </tr>
 </tbody></table>
 <hr>
-<h2 id="四、配置示例对比"><a href="#四、配置示例对比" class="headerlink" title="四、配置示例对比"></a>四、配置示例对比</h2><h3 id="Webpack（简化版）"><a href="#Webpack（简化版）" class="headerlink" title="Webpack（简化版）"></a>Webpack（简化版）</h3><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;./src/main.js&#x27;</span>,<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.vue$/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">&#x27;vue-loader&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.ts$/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">&#x27;ts-loader&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>, <span class="hljs-attr">use</span>: [<span class="hljs-string">&#x27;style-loader&#x27;</span>, <span class="hljs-string">&#x27;css-loader&#x27;</span>] &#125;<br>    ]<br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueLoaderPlugin</span>()<br>  ],<br>  <span class="hljs-attr">devServer</span>: &#123;<br>    <span class="hljs-attr">hot</span>: <span class="hljs-literal">true</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="四、配置示例对比"><a href="#四、配置示例对比" class="headerlink" title="四、配置示例对比"></a>四、配置示例对比</h3><h4 id="Webpack（简化版）"><a href="#Webpack（简化版）" class="headerlink" title="Webpack（简化版）"></a>Webpack（简化版）</h4><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;./src/main.js&#x27;</span>,<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.vue$/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">&#x27;vue-loader&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.ts$/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">&#x27;ts-loader&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>, <span class="hljs-attr">use</span>: [<span class="hljs-string">&#x27;style-loader&#x27;</span>, <span class="hljs-string">&#x27;css-loader&#x27;</span>] &#125;<br>    ]<br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueLoaderPlugin</span>()<br>  ],<br>  <span class="hljs-attr">devServer</span>: &#123;<br>    <span class="hljs-attr">hot</span>: <span class="hljs-literal">true</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-什么是-Monorepo-和-Turborepo？"><a href="#3-什么是-Monorepo-和-Turborepo？" class="headerlink" title="3.什么是 Monorepo 和 Turborepo？"></a>3.什么是 Monorepo 和 Turborepo？</h2><h3 id="一、Monorepo（单体仓库）"><a href="#一、Monorepo（单体仓库）" class="headerlink" title="一、Monorepo（单体仓库）"></a>一、Monorepo（单体仓库）</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><strong>Monorepo</strong>（Mono &#x3D; 单一，Repo &#x3D; 仓库）是一种软件开发策略：<strong>将多个相关项目&#x2F;包放在同一个代码仓库中管理</strong>。</p>
+<h3 id="对比：Monorepo-vs-Multi-repo"><a href="#对比：Monorepo-vs-Multi-repo" class="headerlink" title="对比：Monorepo vs Multi-repo"></a>对比：Monorepo vs Multi-repo</h3><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">Monorepo</th>
+<th align="left">Multi-repo（多仓库）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>仓库数量</strong></td>
+<td align="left">1 个仓库包含多个项目</td>
+<td align="left">每个项目独立仓库</td>
+</tr>
+<tr>
+<td align="left"><strong>依赖管理</strong></td>
+<td align="left">内部包可直接引用，版本统一</td>
+<td align="left">需发布到 npm，版本耦合复杂</td>
+</tr>
+<tr>
+<td align="left"><strong>代码复用</strong></td>
+<td align="left">跨项目共享代码极其方便</td>
+<td align="left">需通过 npm 包或 Git Submodule</td>
+</tr>
+<tr>
+<td align="left"><strong>原子提交</strong></td>
+<td align="left">一次提交可修改多个包</td>
+<td align="left">多仓库需多次提交，难保证一致性</td>
+</tr>
+<tr>
+<td align="left"><strong>CI&#x2F;CD</strong></td>
+<td align="left">统一配置，按需运行任务</td>
+<td align="left">每个仓库单独配置</td>
+</tr>
+<tr>
+<td align="left"><strong>工具链</strong></td>
+<td align="left">统一 ESLint、TypeScript 等配置</td>
+<td align="left">各仓库可能不一致</td>
+</tr>
+</tbody></table>
+<h3 id="典型应用场景"><a href="#典型应用场景" class="headerlink" title="典型应用场景"></a>典型应用场景</h3><ul>
+<li>前端组件库 + 示例站点 + 工具脚本  </li>
+<li>微前端架构（主应用 + 子应用）  </li>
+<li>全栈项目（React 前端 + NestJS 后端 + 共享类型定义）  </li>
+<li>UI 库生态（如 Element Plus 的 packages）</li>
+</ul>
+<h3 id="二、Turborepo：为-Monorepo-而生的高性能构建系统"><a href="#二、Turborepo：为-Monorepo-而生的高性能构建系统" class="headerlink" title="二、Turborepo：为 Monorepo 而生的高性能构建系统"></a>二、Turborepo：为 Monorepo 而生的高性能构建系统</h3><h3 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h3><p><strong>Turborepo</strong> 是由 Vercel 开发的 <strong>高性能 Monorepo 构建工具</strong>，专为 JavaScript&#x2F;TypeScript 项目设计。</p>
+<blockquote>
+<p>🚀 核心目标：<strong>让 Monorepo 的任务执行（build&#x2F;test&#x2F;lint）更快、更智能</strong></p>
+</blockquote>
+<h3 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h3><h4 id="1-智能任务编排（Task-Pipeline）"><a href="#1-智能任务编排（Task-Pipeline）" class="headerlink" title="1. 智能任务编排（Task Pipeline）"></a>1. <strong>智能任务编排（Task Pipeline）</strong></h4><p>通过 <code>turbo.json</code> 定义任务依赖关系，自动并行执行无依赖任务。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// turbo.json</span><br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;pipeline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;dependsOn&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;^build&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 依赖其他包的 build</span><br>      <span class="hljs-attr">&quot;outputs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;.next/**&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;dist/**&quot;</span><span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;dependsOn&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;build&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-comment">// test 依赖本包的 build</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;lint&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="2-增量构建-amp-远程缓存（Remote-Caching）"><a href="#2-增量构建-amp-远程缓存（Remote-Caching）" class="headerlink" title="2. 增量构建 &amp; 远程缓存（Remote Caching）"></a>2. 增量构建 &amp; 远程缓存（Remote Caching）</h4><p>本地缓存：跳过未变更代码的任务<br>远程缓存（Vercel 提供免费服务）：团队共享缓存，新成员&#x2F;CI 直接命中缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 第一次运行（慢）</span><br>$ turbo run build<br><br><span class="hljs-comment"># 修改后再次运行（快！只构建受影响包）</span><br>$ turbo run build<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
