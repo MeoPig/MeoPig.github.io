@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 什么是Vite?">
+    <meta name="description" content="1. 什么叫工程化？对前端工程化的理解前端工程化，是指将软件工程的思想和方法应用到前端开发中，通过工具、流程和规范的系统化建设，提升开发效率、代码质量和项目可维护性。其核心目标是：让前端开发更高效、更可靠、更可持续。  一、为什么需要前端工程化？随着 Web 应用日益复杂（SPA、微前端、大型团队协作），传统“写 HTML + CSS + JS”的方式已无法满足需求：  代码量庞大，手动管理依赖困">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试-工程化篇">
 <meta property="og:url" content="http://example.com/2025/09/03/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%AF%87/index.html">
 <meta property="og:site_name" content="MeoPig">
-<meta property="og:description" content="1. 什么是Vite?">
+<meta property="og:description" content="1. 什么叫工程化？对前端工程化的理解前端工程化，是指将软件工程的思想和方法应用到前端开发中，通过工具、流程和规范的系统化建设，提升开发效率、代码质量和项目可维护性。其核心目标是：让前端开发更高效、更可靠、更可持续。  一、为什么需要前端工程化？随着 Web 应用日益复杂（SPA、微前端、大型团队协作），传统“写 HTML + CSS + JS”的方式已无法满足需求：  代码量庞大，手动管理依赖困">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-03T13:08:37.000Z">
-<meta property="article:modified_time" content="2025-09-14T06:57:08.782Z">
+<meta property="article:modified_time" content="2025-11-25T04:45:34.353Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      10 字
+      2.3k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      20 分钟
     </span>
   
 
@@ -238,7 +238,177 @@
             <h1 style="display: none">前端面试-工程化篇</h1>
             
             <div class="markdown-body">
-              <h2 id="1-什么是Vite"><a href="#1-什么是Vite" class="headerlink" title="1. 什么是Vite?"></a>1. 什么是Vite?</h2>
+              <h2 id="1-什么叫工程化？"><a href="#1-什么叫工程化？" class="headerlink" title="1. 什么叫工程化？"></a>1. 什么叫工程化？</h2><h1 id="对前端工程化的理解"><a href="#对前端工程化的理解" class="headerlink" title="对前端工程化的理解"></a>对前端工程化的理解</h1><p>前端工程化，是指<strong>将软件工程的思想和方法应用到前端开发中</strong>，通过工具、流程和规范的系统化建设，提升开发效率、代码质量和项目可维护性。其核心目标是：<strong>让前端开发更高效、更可靠、更可持续</strong>。</p>
+<hr>
+<h2 id="一、为什么需要前端工程化？"><a href="#一、为什么需要前端工程化？" class="headerlink" title="一、为什么需要前端工程化？"></a>一、为什么需要前端工程化？</h2><p>随着 Web 应用日益复杂（SPA、微前端、大型团队协作），传统“写 HTML + CSS + JS”的方式已无法满足需求：</p>
+<ul>
+<li>代码量庞大，手动管理依赖困难  </li>
+<li>多人协作易冲突，风格不统一  </li>
+<li>浏览器兼容性问题复杂  </li>
+<li>性能优化需系统化方案  </li>
+<li>上线部署流程混乱，容易出错</li>
+</ul>
+<blockquote>
+<p>💡 <strong>前端工程化 &#x3D; 解决“规模”和“协作”带来的问题</strong></p>
+</blockquote>
+<hr>
+<h2 id="二、前端工程化的核心组成部分"><a href="#二、前端工程化的核心组成部分" class="headerlink" title="二、前端工程化的核心组成部分"></a>二、前端工程化的核心组成部分</h2><h3 id="1-模块化（Modularization）"><a href="#1-模块化（Modularization）" class="headerlink" title="1. 模块化（Modularization）"></a>1. <strong>模块化（Modularization）</strong></h3><ul>
+<li>将代码拆分为独立、可复用的模块</li>
+<li>技术演进：<code>CommonJS</code> → <code>AMD</code> → <code>ES Module</code></li>
+<li>工具支持：Webpack、Vite、Rollup 等打包器</li>
+</ul>
+<p>✅ 解决：全局污染、依赖混乱、代码复用难</p>
+<hr>
+<h3 id="2-组件化（Componentization）"><a href="#2-组件化（Componentization）" class="headerlink" title="2. 组件化（Componentization）"></a>2. <strong>组件化（Componentization）</strong></h3><ul>
+<li>以组件为单位组织 UI 和逻辑（如 Vue&#x2F;React 组件）</li>
+<li>高内聚、低耦合，支持复用和组合</li>
+</ul>
+<p>✅ 解决：UI 重复开发、维护成本高</p>
+<hr>
+<h3 id="3-规范化（Standardization）"><a href="#3-规范化（Standardization）" class="headerlink" title="3. 规范化（Standardization）"></a>3. <strong>规范化（Standardization）</strong></h3><ul>
+<li><strong>代码规范</strong>：ESLint、Prettier（统一风格，减少低级错误）</li>
+<li><strong>提交规范</strong>：Commitlint + Husky（如 <code>feat: add login button</code>）</li>
+<li><strong>目录结构</strong>：约定优于配置（如 <code>src/views</code>, <code>src/components</code>）</li>
+<li><strong>文档规范</strong>：JSDoc、TypeScript 类型注解</li>
+</ul>
+<p>✅ 解决：团队协作混乱、代码可读性差</p>
+<hr>
+<h3 id="4-自动化（Automation）"><a href="#4-自动化（Automation）" class="headerlink" title="4. 自动化（Automation）"></a>4. <strong>自动化（Automation）</strong></h3><ul>
+<li><strong>构建自动化</strong>：Vite&#x2F;Webpack 自动编译、压缩、分包</li>
+<li><strong>测试自动化</strong>：Jest（单元测试）、Cypress（E2E）</li>
+<li><strong>部署自动化</strong>：CI&#x2F;CD（GitHub Actions、Jenkins）</li>
+<li><strong>质量检查自动化</strong>：SonarQube、Lighthouse</li>
+</ul>
+<p>✅ 解决：人工操作易出错、重复劳动多</p>
+<hr>
+<h3 id="5-性能与体验优化"><a href="#5-性能与体验优化" class="headerlink" title="5. 性能与体验优化"></a>5. <strong>性能与体验优化</strong></h3><ul>
+<li>资源压缩（Terser、CSSNano）</li>
+<li>代码分割（Code Splitting）</li>
+<li>缓存策略（Cache-Control、ETag）</li>
+<li>懒加载、预加载</li>
+<li>监控上报（Sentry、Web Vitals）</li>
+</ul>
+<p>✅ 解决：页面加载慢、用户体验差</p>
+<hr>
+<h2 id="2-什么是Vite-和Webpack区别是什么"><a href="#2-什么是Vite-和Webpack区别是什么" class="headerlink" title="2. 什么是Vite?和Webpack区别是什么"></a>2. 什么是Vite?和Webpack区别是什么</h2><h1 id="Vite-与-Webpack-的核心区别"><a href="#Vite-与-Webpack-的核心区别" class="headerlink" title="Vite 与 Webpack 的核心区别"></a>Vite 与 Webpack 的核心区别</h1><p>Vite 和 Webpack 都是现代前端构建工具，但设计理念、架构和使用体验有本质不同。</p>
+<hr>
+<h2 id="一、核心理念对比"><a href="#一、核心理念对比" class="headerlink" title="一、核心理念对比"></a>一、核心理念对比</h2><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left"><strong>Webpack</strong></th>
+<th align="left"><strong>Vite</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>定位</strong></td>
+<td align="left">模块打包器（bundler）</td>
+<td align="left">新一代前端构建工具（基于原生 ES 模块）</td>
+</tr>
+<tr>
+<td align="left"><strong>开发模式原理</strong></td>
+<td align="left">打包整个应用 → 启动开发服务器</td>
+<td align="left"><strong>不打包</strong>！直接按需加载源码</td>
+</tr>
+<tr>
+<td align="left"><strong>生产构建</strong></td>
+<td align="left">自带打包能力</td>
+<td align="left">基于<strong>Rollup</strong> 进行生产打包</td>
+</tr>
+<tr>
+<td align="left"><strong>启动速度</strong></td>
+<td align="left">慢（需分析依赖、打包所有模块）</td>
+<td align="left">⚡ 极快（秒级启动）</td>
+</tr>
+<tr>
+<td align="left"><strong>热更新（HMR）</strong></td>
+<td align="left">重新打包受影响模块</td>
+<td align="left">只更新修改的文件，无打包开销</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 <strong>关键区别</strong>：<br>Webpack 在开发时<strong>先打包再运行</strong>，Vite 在开发时<strong>直接运行源码</strong>。</p>
+</blockquote>
+<hr>
+<h2 id="二、技术原理详解"><a href="#二、技术原理详解" class="headerlink" title="二、技术原理详解"></a>二、技术原理详解</h2><h3 id="Webpack：传统打包流程"><a href="#Webpack：传统打包流程" class="headerlink" title="Webpack：传统打包流程"></a>Webpack：传统打包流程</h3><ol>
+<li>启动时扫描所有依赖</li>
+<li>构建完整的依赖图（dependency graph）</li>
+<li>将所有模块打包成一个或多个 bundle（如 <code>main.js</code>）</li>
+<li>启动开发服务器，提供 bundle</li>
+<li>修改代码 → 重新打包 → 刷新&#x2F;HMR</li>
+</ol>
+<p>✅ 优点：兼容性好，生态成熟<br>❌ 缺点：项目越大，启动和热更新越慢</p>
+<h3 id="Vite：利用浏览器原生-ES-模块（ESM）"><a href="#Vite：利用浏览器原生-ES-模块（ESM）" class="headerlink" title="Vite：利用浏览器原生 ES 模块（ESM）"></a>Vite：利用浏览器原生 ES 模块（ESM）</h3><ol>
+<li>启动开发服务器（基于 <a target="_blank" rel="noopener" href="https://esbuild.github.io/">esbuild</a> + Koa）</li>
+<li>浏览器请求 <code>index.html</code></li>
+<li>HTML 引用 <code>&lt;script type=&quot;module&quot; src=&quot;/src/main.js&quot;&gt;</code></li>
+<li>浏览器直接请求 <code>/src/main.js</code></li>
+<li>Vite 拦截请求：<ul>
+<li>对 <code>.js</code>&#x2F;<code>.vue</code> 文件：实时编译（如 Vue SFC → JS）</li>
+<li>对 <code>node_modules</code>：用 esbuild 预构建为 ESM（一次性的）</li>
+</ul>
+</li>
+<li>修改代码 → 浏览器只重新请求该文件 → 热更新极快</li>
+</ol>
+<p>✅ 优点：启动快、热更新快、配置简单<br>❌ 缺点：仅支持现代浏览器（不支持 IE）</p>
+<hr>
+<h2 id="三、功能对比表"><a href="#三、功能对比表" class="headerlink" title="三、功能对比表"></a>三、功能对比表</h2><table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">Webpack</th>
+<th align="left">Vite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>开发服务器启动速度</strong></td>
+<td align="left">慢（秒~分钟级）</td>
+<td align="left">⚡ 快（毫秒~秒级）</td>
+</tr>
+<tr>
+<td align="left"><strong>热更新速度</strong></td>
+<td align="left">中等（依赖打包速度）</td>
+<td align="left">⚡ 极快（与文件大小无关）</td>
+</tr>
+<tr>
+<td align="left"><strong>生产构建</strong></td>
+<td align="left">自研打包器</td>
+<td align="left">基于 Rollup</td>
+</tr>
+<tr>
+<td align="left"><strong>配置复杂度</strong></td>
+<td align="left">复杂（loader&#x2F;plugin 体系）</td>
+<td align="left">简洁（约定优于配置）</td>
+</tr>
+<tr>
+<td align="left"><strong>TypeScript 支持</strong></td>
+<td align="left">需 <code>ts-loader</code> 或 <code>babel</code></td>
+<td align="left">开箱即用</td>
+</tr>
+<tr>
+<td align="left"><strong>CSS 处理</strong></td>
+<td align="left">需 <code>css-loader</code> + <code>style-loader</code></td>
+<td align="left">内置支持</td>
+</tr>
+<tr>
+<td align="left"><strong>代码分割（Code Splitting）</strong></td>
+<td align="left">支持（<code>SplitChunksPlugin</code>）</td>
+<td align="left">支持（Rollup 实现）</td>
+</tr>
+<tr>
+<td align="left"><strong>兼容性</strong></td>
+<td align="left">支持 IE8+</td>
+<td align="left">仅支持现代浏览器（ESM）</td>
+</tr>
+<tr>
+<td align="left"><strong>插件生态</strong></td>
+<td align="left">极其丰富</td>
+<td align="left">快速增长（兼容 Rollup 插件）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、配置示例对比"><a href="#四、配置示例对比" class="headerlink" title="四、配置示例对比"></a>四、配置示例对比</h2><h3 id="Webpack（简化版）"><a href="#Webpack（简化版）" class="headerlink" title="Webpack（简化版）"></a>Webpack（简化版）</h3><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;./src/main.js&#x27;</span>,<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.vue$/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">&#x27;vue-loader&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.ts$/</span>, <span class="hljs-attr">use</span>: <span class="hljs-string">&#x27;ts-loader&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>, <span class="hljs-attr">use</span>: [<span class="hljs-string">&#x27;style-loader&#x27;</span>, <span class="hljs-string">&#x27;css-loader&#x27;</span>] &#125;<br>    ]<br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueLoaderPlugin</span>()<br>  ],<br>  <span class="hljs-attr">devServer</span>: &#123;<br>    <span class="hljs-attr">hot</span>: <span class="hljs-literal">true</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
