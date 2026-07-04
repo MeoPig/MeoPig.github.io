@@ -1,6 +1,6 @@
 ---
 title: 前端面试-js篇
-date: 2025-08-30 16:04:20
+date: 2023-08-30 16:04:20
 tags:
 ---
 ## 1.js中的数据类型？
@@ -39,6 +39,7 @@ typeof与instanceof都是判断数据类型的方法，区别如下：
 
 * typeof会返回一个变量的基本类型，instanceof返回的是一个布尔值。
 * instanceof 可以准确地判断复杂引用数据类型，但是不能正确判断基础数据类型。
+* instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上.
 * 而typeof 也存在弊端，它虽然可以判断基础数据类型（null 除外），但是引用数据类型中，除了function 类型以外，其他的也无法判断。
 
 ## 6.手动实现一个instanceof
@@ -48,6 +49,7 @@ typeof与instanceof都是判断数据类型的方法，区别如下：
 ```javascript
 function myInstanceof(left, right) {
     if (typeof left !== 'object' || left === null) return false;
+    // getProtypeOf是Object对象自带的API，能够拿到参数的原型对象
     let proto = Object.getPrototypeOf(left);
     while (true) {
         if (proto === null) return false;
@@ -63,8 +65,14 @@ console.log(myInstanceof(new String('111'), String)); //true
 
 ## 7.object.is和===区别？
 
-* NaN 和 NaN 相等
-* 0 和 -0 不相等
+* Object.is()与===之间的主要区别在于它们如何处理NaN和-0。
+
+  * 对于NaN，Object.is(NaN, NaN)返回true，而NaN === NaN返回false。
+  * 对于-0和+0，Object.is(-0, 0)返回false，而-0 === 0返回true。
+* Object.is()与==之间的主要区别在于：
+
+  * == 运算符在判断相等前对两边的变量（如果它们不是同一类型）进行强制转换（这种行为将 "" == false 判断为 true）
+  * Object.is 不会强制转换两边的值。
 
 ---
 
@@ -76,7 +84,7 @@ console.log(myInstanceof(new String('111'), String)); //true
 * 转换成布尔值
 * 转换成字符串
 
-![ ](8-1.png)
+![](8-1.png)
 
 ## 9. === 和 == 的区别？
 
@@ -174,7 +182,9 @@ function m(){
 
 ## 12. 原型链
 
-![ ](12-1.png)
+![](12-1.png)
+
+![](12-2.png)
 
 ---
 
@@ -333,7 +343,7 @@ JS 分为原始类型和引用类型，对于原始类型的拷贝，并没有�
    ```
 2. object.assign()
    Object.assign() 拷贝的是对象的属性的引用，而不是对象本身。
-   Object.assign 只会拷⻉所有的属性值到新的对象中，如果属性值是对象的话，拷⻉的是地址，所以并不是深拷⻉
+   Object.assign 只会拷贝所有的属性值到新的对象中，如果属性值是对象的话，拷贝的是地址，所以并不是深拷贝
 
    ```javascript
     let obj = { name: 'sy', age: 18 };
@@ -787,12 +797,12 @@ console.log(greeting);
 ### innerHTML
 
 * 定义：是任意 DOM 元素的一个属性，表示该元素内部的 HTML 内容（作为字符串）
-* 他将呢日哦那个写入某个DOM节点，不会导致页面重绘
+* 他写入某个DOM节点，不会导致页面重绘
 * 在很多情况下都优于document.write(),其原因在于其允许更精确的控制要刷新页面的那一部分。
 
 ## 33. for...in和 for...of 有什么区别？
 
-for...of 是ES6新增的，允许便利一个含有iterator接口的数据结构并返回各项的值，和for in的区别如下：
+for...of 是ES6新增的，允许遍历一个含有iterator接口的数据结构并返回各项的值，和for in的区别如下：
 
 * for...of 遍历获取的是对象的键值，for...in获取的是对象的键名；
 * for...in 会遍历对象的整个原型链，不推荐使用，而for...of只遍历当前对象不会遍历原型链。
@@ -872,34 +882,103 @@ async/await相辅相成，
 * async await与Promise一样，是非阻塞的。
 * async await是基于Promise实现的，可以说是改良版的Promise，它不能用于普通的回调函数。
 
-## 37. CSR和SSR 分别是什么？
+## 37. js 事件循环？
 
-CSR 和 SSR 是前端开发中两种主要的页面渲染方式，它们决定了网页内容是在客户端（用户浏览器）还是在服务器端生成并发送给用户的。
+**定义**
+事件循环 是 JavaScript 实现异步非阻塞编程的核心机制。
+它协调调用栈（Call Stack）、任务队列（Task Queue）和微任务队列（Microtask Queue），确保代码有序执行。
 
-### CSR（Client-Side Rendering，客户端渲染）
+**执行机制流程**
 
-**核心思想**：
-服务器只返回一个空的 HTML 骨架（通常只有一个 `<div id="app"></div>`）和一个 JavaScript 文件。
-所有页面内容、数据获取、DOM 操作都由浏览器下载 JS 后，在客户端动态生成。
-**工作流程**：
+* **执行同步代码**：放入执行栈，逐个执行。
+* **遇到异步任务**：
+  * setTimeout、setInterval、I/O、postMessage → 进入宏任务队列（Task Queue）
+  * Promise.then、MutationObserver → 进入微任务队列（Microtask Queue）
+* **同步代码执行完毕**后：
+  * 先清空微任务队列（全部执行完）
+  * 取一个宏任务执行
+  * 再清空微任务队列
+  * 循环往复
 
-* 用户访问页面。
-* 服务器返回一个极简的 HTML 文件（几乎为空）。
-* 浏览器下载并执行 JavaScript 文件。
-* JS 代码向后端 API 请求数据。
-* JS 根据数据动态构建 DOM，最终显示完整页面。
+**例子**：
 
-### SSR (Server-Side Rendering) - 服务端渲染
+```javascript
+      console.log('1');
 
-**核心思想**：
+      setTimeout(() => {
+      console.log('2');
+      }, 0);
 
-* 服务器在接收到请求时，提前将页面内容渲染成完整的 HTML 字符串，然后直接发送给浏览器。
-* 用户打开页面时，看到的是一个已经包含内容的完整页面。
+      Promise.resolve().then(() => {
+      console.log('3');
+      });
 
-**工作流程**：
+      console.log('4');
 
-* 用户访问页面。
-* 服务器接收到请求，调用后端逻辑或前端框架（在服务端运行）生成完整的 HTML。
-* 服务器将包含数据的完整 HTML 发送给浏览器。
-* 浏览器直接渲染出可视页面（首屏快）。
-* 同时，JavaScript 也会被下载并“激活”（称为 Hydration），使页面具备交互能力。
+      // 输出顺序：1 → 4 → 3 → 2
+```
+
+## 38. forEach、for...of、for...in 区别以及应用场景？
+
+JavaScript 循环语法对比：forEach、for...of、for...in
+
+
+| 特性             | `forEach`                     | `for...of`                                                    | `for...in`                         |
+| :----------------- | :------------------------------ | :-------------------------------------------------------------- | :----------------------------------- |
+| **适用对象**     | 数组、类数组                  | 可迭代对象（Array, Map, Set, String, arguments, NodeList 等） | 对象的**可枚举属性**（包括原型链） |
+| **是否可中断**   | ❌ 不能使用`break`/`continue` | ✅ 可以`break`/`continue`                                     | ✅ 可以`break`/`continue`          |
+| **是否异步友好** | ❌`await` 不生效              | ✅`await` 有效，可串行执行                                    | ✅`await` 有效                     |
+| **性能**         | 中等                          | 高                                                            | 低（遍历所有可枚举属性）           |
+| **返回值**       | `undefined`                   | 无（可配合`return`）                                          | 无                                 |
+
+## 39. 在 forEach 循环中使用 await，循环是否会等待异步操作？ 为什么？
+
+不会。
+
+* forEach 是一种同步方法，它会对数组的每个元素执行一次回调函数，但它不“感知”异步操作。
+* await 的作用域： await 关键字只能在 async 函数中使用，并且它的作用是暂停当前异步函数的执行，直到它所等待的Promise 对象被解决。
+
+## 40. forEach 循环中能否使用 break？如果不能，如何提前退出？
+
+**答案：❌ 不能。**
+
+`forEach` 是数组的一个**高阶函数**，它接收一个回调函数作为参数，内部通过函数式的方式遍历数组。
+由于 `break` 是用于**循环语句**（如 `for`、`while`）的控制关键字，而 `forEach` 不是循环语句，因此在 `forEach` 中使用 `break` 会抛出语法错误。
+
+**退出方法：**
+
+* 使用 return（**仅跳出当前回调**）
+
+  ```javascript
+   arr.forEach(item => {
+   if (item === 3) {
+      return; // ✅ 跳过当前项，继续下一项
+   }
+   console.log(item); // 输出: 1, 2, 4, 5
+   });
+  ```
+* 抛出异常（不推荐）
+* 改用 for...of 循环
+* 改用普通 for 循环
+* 结合 some 或 every 实现“条件中断”
+
+## 41. `for` 循环和 `map` 循环有什么区别？
+
+
+| 特性               | `for` 循环                   | `map` 循环                       |
+| :------------------- | :----------------------------- | :--------------------------------- |
+| **类型**           | 语句                         | 数组方法（函数式）               |
+| **返回值**         | `undefined`                  | 返回**新数组**（原数组映射结果） |
+| **是否修改原数组** | 否（除非手动修改）           | 否（返回新数组）                 |
+| **性能**           | 高                           | 较低（创建新数组有开销）         |
+| **适用场景**       | 遍历、查找、中断、副作用操作 | **转换数据**，生成新数组         |
+| **能否 `break`**   | ✅ 可以                      | ❌ 不能                          |
+
+## 42. 箭头函数与普通函数的区别？
+
+1. 语法更简洁清晰。
+2. 箭头函数没有自己的 this，它继承了父作用域的 this。
+3. 箭头函数继承而来的this，是固定的，不会随函数的调用环境而改变。call 、apply 、bind 也无法改变 this 的指向。
+4. 箭头函数无法当作构造函数使用
+5. 箭头函数没有自己的arguments 对象
+6. 箭头函数没有原型prototype

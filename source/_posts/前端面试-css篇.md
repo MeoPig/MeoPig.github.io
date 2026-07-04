@@ -1,17 +1,17 @@
 ---
 title: 前端面试-CSS篇
-date: 2025-08-26 20:56:12
+date: 2023-08-26 20:56:12
 tags:
 ---
 ## 1.让一个元素水平垂直居中的方案？
 
-![ ](1-1.png)
+![](1-1.png)
 
 ---
 
 ## 2.说说对盒子模型的理解？
 
-![ ](2-1.png)
+![](2-1.png)
 
 一个盒子由四个部分组成：content、padding、border、margin
 
@@ -106,7 +106,7 @@ tags:
 * 如果元素宽度固定，可以设置左右 margin 为 auto ;
 * 如果元素为绝对定位，设置⽗元素 position 为 relative ，元素设left:0;right:0;margin:auto;
 * 使用 flex-box 布局，指定 justify-content 属性为center
-display 设置为 tabel-ceil
+  display 设置为 tabel-ceil
 
 ---
 
@@ -127,7 +127,7 @@ display 设置为 tabel-ceil
    * 使用css媒体查询来根据设备特征应用不同样式
    * 通过设置百分比宽度、最大宽度或相对单位来确保元素相对于其容器的大小进行自适应。
 
-  ![ ](12-1.png)
+  ![](12-1.png)
 2. 弹性布局和网格布局
 3. 移动端优先，首先定义移动端的样式，然后使用媒体查询逐步添加到更大屏幕上，以确保基本功能在小屏幕上正常工作。
 

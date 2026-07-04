@@ -1,6 +1,6 @@
 ---
 title: 前端面试-VUE篇
-date: 2025-09-03 23:04:13
+date: 2023-09-03 23:04:13
 tags:
 ---
 ## 1.虚拟dom渲染到页面上时，框架做了什么？
@@ -51,20 +51,23 @@ Vue的数据响应式系统通过Object.defineProperty()（Vue2） 或者ES6的P
 
 * 源码层面
 
+
   | 版本 | 区别                                                      |
-  | ---- | --------------------------------------------------------- |
+  | ------ | ----------------------------------------------------------- |
   | vue2 | javascript 使用flow进行类型检测                           |
   | vue3 | 源码使用typescript进行重构，vue对typescript支持更加友好了 |
 * 性能层面
 
-  | 版本 | 区别                                                                                                |
-  | ---- | --------------------------------------------------------------------------------------------------- |
-  | vue2 | 使用object.defineProperty来劫持数据的setter和getter方法，对象改变需要借助api去深度监听              |
+
+  | 版本 | 区别                                                                                              |
+  | ------ | --------------------------------------------------------------------------------------------------- |
+  | vue2 | 使用object.defineProperty来劫持数据的setter和getter方法，对象改变需要借助api去深度监听            |
   | vue3 | 使用Proxy来实现数据劫持，删除了一些api($on,$once,$off) fiter等，优化了Block tree,solt,diff 算法等 |
 * api方面
 
+
   | 版本 | 区别                                                                                               |
-  | ---- | -------------------------------------------------------------------------------------------------- |
+  | ------ | ---------------------------------------------------------------------------------------------------- |
   | vue2 | OptionsAPI 在options里写data,methods,created等描述组件对象，多个逻辑可能在不不同地方，代码内聚性低 |
   | vue3 | CompositionAPI 将模块相关代码统一放在一个地方处理，不需要在多个options里查找                       |
 * hook函数增加代码复用性
@@ -77,8 +80,9 @@ Vue的数据响应式系统通过Object.defineProperty()（Vue2） 或者ES6的P
   * 当内部有异步函数，需要使用到await的时候，可以直接使用，不需要在setup前面加async
 * 生命周期
 
+
   | vue2            | vue3              | 生命周期                    |
-  | --------------- | ----------------- | --------------------------- |
+  | ----------------- | ------------------- | ----------------------------- |
   | beforeCreate()  | setup()           | 组件开始创建数据实例之前    |
   | created()       | setup()           | 组件数据创建数据实例完成    |
   | beforeMount()   | onBeforeMount()   | DOM挂载之前                 |
@@ -129,7 +133,7 @@ Vue的数据响应式系统通过Object.defineProperty()（Vue2） 或者ES6的P
 4. vue3响应式手写
 
    * reactive
-     ![ ](5-1.png)
+     ![](5-1.png)
 
    ```javascript
    const reactive =  <T extends object>(target: T) => {
@@ -166,7 +170,7 @@ Vue的数据响应式系统通过Object.defineProperty()（Vue2） 或者ES6的P
    ```
 
    * track（依赖收集），该方法的主要作用就是收集依赖，这里可以使用Map去进行存储依赖关系，Map的key就是我们的代理对象，而value还是一个嵌套的map，存储代理对象的每个key以及对应的依赖函数数组，因为每个key都可以有多个依赖。
-     ![ ](5-2.png)
+     ![](5-2.png)
 
    ```javascript
    const targetMap = new WeakMap()
@@ -763,3 +767,102 @@ Vue内置组件，可以使被包含的组件保留状态或避免重新渲染�
 * activated：组件被激活时调用,可以理解为进入这个页面时候触发。
 * deactivated：组件被移除时调用,可以理解为离开这个页面时候触发。
 
+## 20. Vue中nextTick() 是什么？
+
+nextTick() 是一个函数，它允许你在 Vue 完成 DOM 更新后执行回调函数。
+Vue 更新 DOM 是异步的，当你修改响应式数据时，Vue 不会立即更新 DOM，而是：
+
+* 将该组件的更新任务推入一个队列
+* 在“下一个事件循环 tick”中批量执行所有更新
+* 这样可以避免重复渲染，提升性能
+
+  ```html
+  <script setup>
+  import { ref, nextTick } from 'vue'
+
+  const count = ref(0)
+  const divEl = ref(null)
+
+  const increment = async () => {
+    count.value++
+    // ❌ 此时 DOM 还未更新
+    console.log(divEl.value.textContent) // 可能还是旧值
+
+    await nextTick()
+    // ✅ 此时 DOM 已更新
+    console.log(divEl.value.textContent) // 新值
+  }
+  </script>
+
+  <template>
+    <div ref="divEl">{{ count }}</div>
+    <button @click="increment">+1</button>
+  </template>
+  ```
+
+简而言之：nextTick() 是 Vue 的“DOM 更新完成通知器”——你告诉 Vue：“等 DOM 刷完，再执行我的代码”。
+
+## 21. Vue-router的钩子函数都有哪些？
+
+* 全局前置守卫 router.beforeEach
+
+  * 在任何路由跳转前执行，通常用于权限校验、登录检查
+* 路由独享守卫：beforeEnter
+
+  * 只对某个特定路由生效的守卫。
+  * ```javascript
+      const routes = [
+      {
+        path: '/dashboard',
+        component: Dashboard,
+        meta: { requiresAuth: true },
+        beforeEnter: (to, from) => {
+          if (!hasPermission('dashboard')) {
+            return '/403' // 返回字符串，重定向
+          }
+          // 不调用 next()，默认放行
+        }
+      }
+    ]
+    ```
+* 组件内守卫
+
+  * beforeRouteEnter:在进入组件前调用，此时组件实例还未创建，不能访问 this。
+  * beforeRouteUpdate:当路由的参数变化时调用（如 /user/1 → /user/2），组件会被复用。
+
+    * ```javascript
+        beforeRouteUpdate (to, from, next) {  
+          // 在当前路由改变，但是该组件被复用时调用  
+          // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，  
+          // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。  
+          // 可以访问组件实例 `this`  
+          // 别忘了调用next 
+          }
+      ```
+  * beforeRouteLeave:在离开当前组件时调用，常用于防止用户误操作离开。
+
+    * ```javascript
+      beforeRouteLeave(to, from, next) {
+        const answer = window.confirm('你确定要离开吗？数据可能未保存！')
+        if (answer) {
+          next()
+        } else {
+          next(false) // 取消导航
+        }
+      }
+      ```
+* 其他钩子
+
+  * router.beforeResolve，类似 beforeEach，但在所有组件内守卫和异步路由都解析完毕后触发。
+  * router.afterEach（后置钩子），没有 next()，不能改变导航，常用于埋点、页面标题设置。
+* 钩子的执行顺序（假设从 /home 导航到 /user/123，涉及 Home 和 User 组件）：
+
+  * Home.beforeRouteLeave （离开当前组件）
+  * Global beforeEach （全局前置守卫）
+  * Route beforeEnter （目标路由独享守卫）
+  * User.beforeRouteEnter （进入目标组件）
+  * Global beforeResolve （全局解析守卫，所有异步守卫完成后）
+    导航确认
+  * Home.beforeRouteUpdate（如果复用）
+  * User.mounted（组件挂载）
+  * Global afterEach（全局后置钩子，无 next）
